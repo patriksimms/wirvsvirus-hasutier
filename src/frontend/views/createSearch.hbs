@@ -1,0 +1,86 @@
+{{ setVar "title" "Suche anlegen" }}
+{{> topInclude }}
+<div class="container">
+    <h2>Suche anlegen</h2>
+    <hr id="siteHeaderUnderline">
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col l12">
+            <div class="card orange darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Haustiere sind keine Viren-Träger!</span>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+                        sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+                        ipsum dolor sit amet.
+                    </p>
+                </div>
+                <div class="card-action">
+                    <a class="black-text" href="#">Weitere Informationen</a>
+                </div>
+            </div>
+        </div>
+        <form class="col l12">
+            <div class="col l6">
+                <h5>Service(s)</h5>
+                <div class="row">
+                    <label>
+                        <input type="checkbox" id="offerServiceWalk">
+                        <span>Gassi gehen</span>
+                    </label>
+                </div>
+                <div class="row">
+                    <label>
+                        <input type="checkbox" id="offerServiceFood">
+                        <span>Futter kaufen</span>
+                    </label>
+                </div>
+                <div class="row">
+                    <label>
+                        <input type="checkbox" id="offerServiceShortInternal">
+                        <span>Kurzfristige Betreuung (intern)</span>
+                    </label>
+                </div>
+                <div class="row">
+                    <label>
+                        <input type="checkbox" id="offerServiceShortExternal">
+                        <span>Kurzfristige Betreuung (extern)</span>
+                    </label>
+                </div>
+                <div class="row">
+                    <label>
+                        <input type="checkbox" id="offerServiceLongInternal">
+                        <span>Langfristige Betreuung (intern)</span>
+                    </label>
+                </div>
+                <div class="row">
+                    <label>
+                        <input type="checkbox" id="offerServiceLongExternal">
+                        <span>Langfristige Betreuung (extern)</span>
+                    </label>
+                </div>
+            </div>
+            <div class="col l6">
+                <h5>Tier(e) auswählen</h5>
+                <div>
+                    <a>Tier(e) hinzufügen</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col l12 input-field">
+                    <label for="offerDescription">Beschreibung der Suche</label>
+                    <textarea id="offerDescription" class="materialize-textarea" maxlength="600"></textarea>
+                    <span class="helper-text">Maximal 600 Zeichen</span>
+                </div>
+            </div>
+
+            <input type="submit" class="btn" value="Angebot erstellen">
+        </form>
+    </div>
+</div>
+{{> bottomInclude }}
