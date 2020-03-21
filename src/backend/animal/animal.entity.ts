@@ -1,6 +1,6 @@
 import { type } from './animalType';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { user } from '../user/user.entity';
+import { User } from '../user/user.entity';
 
 @Entity()
 export class animal {
@@ -11,6 +11,6 @@ export class animal {
   @Column()
   type: type;
 
-  @ManyToOne(type => user, user => user.animals)
-  owner: user;
+  @ManyToOne(type => User, user => user.animals)
+  owner: User;
 }

@@ -7,12 +7,12 @@ import { UserService } from './backend/user/userService';
 import { RegisterController } from './backend/user/userController';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { user } from './backend/user/user.entity';
+import { User } from './backend/user/user.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
-    TypeOrmModule.forFeature([user])
+    TypeOrmModule.forFeature([User])
   ],
 
 
