@@ -13,16 +13,8 @@ import { join } from 'path';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'cloudsql/crossinnovation-1573486159594:europe-west1:wvv-haustiere',
-      port: 5432,
-      username: 'postgres',
-      password: 'pw',
-      database: 'wwv',
-      entities: [join(__dirname, '**/**.entity{.ts,.js}')],
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(),
+    TypeOrmModule.forFeature([user])
   ],
 
 
