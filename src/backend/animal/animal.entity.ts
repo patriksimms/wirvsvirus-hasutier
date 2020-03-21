@@ -1,4 +1,3 @@
-import { type } from './animalType';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from '../user/user.entity';
 
@@ -13,4 +12,12 @@ export class animal {
 
   @ManyToOne(type => User, user => user.animals)
   owner: User;
+}
+
+export enum type {
+  DOG,
+  CAT,
+  BIRD,
+  MOUSE,
+  FISH
 }
