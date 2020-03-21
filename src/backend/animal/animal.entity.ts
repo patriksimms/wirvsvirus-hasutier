@@ -1,5 +1,6 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from '../user/user.entity';
+import { AnimalType } from './animalType.entity';
 
 @Entity()
 export class Animal {
@@ -7,18 +8,11 @@ export class Animal {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
-  type: type;
+  @OneToOne(type => AnimalType)
+  @JoinColumn()
+  type: AnimalType;
 
   @Column({type: 'varchar'})
   @ManyToOne(type => User, user => user.animals)
   owner: User;
-}
-
-export enum type {
-  DOG,
-  CAT,
-  BIRD,
-  MOUSE,
-  FISH
 }

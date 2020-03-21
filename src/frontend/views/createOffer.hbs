@@ -13,52 +13,27 @@
                     <div class="row">
                         <label>
                             <script>
-                                let animalIdentifier = "offerAnimal" + {{this.type}};
+                                let animalIdentifier = 'offerAnimal' + {{this.name}};
                             </script>
                             <input type="checkbox" name=animalIdentifier id=animalIdentifier>
-                            <span>{{this.type}}</span>
+                            <span>{{this.name}}</span>
                         </label>
                     </div>
                 {{/each}}
             </div>
             <div class="col l6">
                 <h5>Service(s)</h5>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" name="offerServiceWalk" id="offerServiceWalk">
-                        <span>Gassi gehen</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" name="offerServiceFood" id="offerServiceFood">
-                        <span>Futter kaufen</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" name="offerServiceShortInternal" id="offerServiceShortInternal">
-                        <span>Kurzfristige Betreuung (intern)</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" name="offerServiceShortExternal" id="offerServiceShortExternal">
-                        <span>Kurzfristige Betreuung (extern)</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" name="offerServiceLongInternal" id="offerServiceLongInternal">
-                        <span>Langfristige Betreuung (intern)</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" name="offerServiceLongExternal" id="offerServiceLongExternal">
-                        <span>Langfristige Betreuung (extern)</span>
-                    </label>
-                </div>
+                {{#each animals}}
+                    <div class="row">
+                        <label>
+                            <script>
+                                let serviceIdentifier = 'offerService' + {{this.name}};
+                            </script>
+                            <input type="checkbox" name=serviceIdentifier id=serviceIdentifier>
+                            <span>{{this.name}}</span>
+                        </label>
+                    </div>
+                {{/each}}
             </div>
 
             <div class="row">
