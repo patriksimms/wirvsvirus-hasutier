@@ -1,10 +1,16 @@
 import { BadRequestException, Controller, Get, Param } from '@nestjs/common';
 import { AnimalService } from './animalService';
 import { Animal } from './animal.entity';
+import { AnimalType } from './animalType.entity';
 
 @Controller('animal')
 export class AnimalController {
   constructor(private readonly animalService: AnimalService) {}
+
+  @Get('types')
+  async getAllAnimalTypes(): Promise<AnimalType[]> {
+    return await this.animalService.getAllAnimalTypes();
+  }
 
   @Get(':id')
   async getAnimal(@Param() params): Promise<Animal> {
