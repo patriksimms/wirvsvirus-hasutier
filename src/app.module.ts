@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { HttpModule, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AnimalController } from './backend/animal/animalController';
 import { AnimalService } from './backend/animal/animalService';
@@ -17,14 +17,20 @@ import { User } from './backend/user/user.entity';
 import { AuthModule } from './backend/auth/auth.module';
 import { Animal } from './backend/animal/animal.entity';
 import { UserModule } from './backend/user/user.module';
+import { NoteModule } from './backend/notes/note.module';
+import { AnimalModule } from './backend/animal/animal.module';
+import { AnimalType } from './backend/animal/animalType.entity';
 
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
     AuthModule,
-    TypeOrmModule.forFeature([User, Animal]),
+    TypeOrmModule.forFeature([User, Animal, AnimalType]),
     UserModule,
+    HttpModule,
+    NoteModule,
+    AnimalModule,
 
   ],
 
