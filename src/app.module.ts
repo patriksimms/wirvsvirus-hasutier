@@ -11,6 +11,8 @@ import { User } from './backend/user/user.entity';
 import { AuthModule } from './backend/auth/auth.module';
 import { Animal } from './backend/animal/animal.entity';
 import { UserModule } from './backend/user/user.module';
+import { NoteModule } from './backend/notes/note.module';
+import { AnimalModule } from './backend/animal/animal.module';
 
 
 @Module({
@@ -19,6 +21,8 @@ import { UserModule } from './backend/user/user.module';
     AuthModule,
     TypeOrmModule.forFeature([User, Animal]),
     UserModule,
+    NoteModule,
+    AnimalModule,
 
   ],
 
