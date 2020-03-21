@@ -9,8 +9,9 @@
 
 .animal-card {
     /*height: 20px;*/
+    margin: 2em 2em 2em 2em;
 }
 
 .animal-card > .card-image > img {
-    width: 20em;
+    /*width: 20em;*/
 }

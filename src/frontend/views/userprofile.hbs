@@ -30,30 +30,36 @@
             <p class="flow-text">Erfahrung:</p>
             <div id="expierence-wrapper">
                 {{#each expierence}}
-                    <p class="chip">{{this}}</p>
+                    <p class="chip flow-text">{{this}}</p>
+                {{/each}}
+            </div>
+            <div id="needed-wrapper">
+                {{#each needed}}
+                    <p class="chip flow-text">{{this}}</p>
                 {{/each}}
             </div>
         </div>
-        <div class="animals-list col l6 s12">
+    </div>
+    <div class="animals-list">
+        <div class="row">
             {{#each animals}}
-                <div class="animal-card card horizontal">
-                    <div class="card-image">
-                        <img src="{{this.animalPicture}}" alt="Tier Bild">
+            <div class=" col l3 animal-card card horizontal">
+                <div class="card-image">
+                    <img src="{{this.animalPicture}}" alt="Tier Bild">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p class="flow-text">Name: {{this.animalname}}</p>
+                        <p class="flow-text">Größe: {{this.size}}</p>
+                        <p class="flow-text">gewicht: {{this.weight}}</p>
                     </div>
-                    <div class="card-stacked">
-                        <div class="card-content">
-                            <p class="flow-text">Name: {{this.animalname}}</p>
-                            <p class="flow-text">Größe: {{this.size}}</p>
-                            <p class="flow-text">gewicht: {{this.weight}}</p>
-                        </div>
-                        <div class="card-action">
-<!--                            TODO set link-->
-                            <a href="#">Bearbeiten</a>
-                        </div>
+                    <div class="card-action">
+                        <!--                            TODO set link-->
+                        <a href="#">Bearbeiten</a>
                     </div>
                 </div>
-            {{/each}}
-        </div>
+            </div>
+        {{/each}}</div>
     </div>
 </div>
 {{> bottomInclude }}
