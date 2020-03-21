@@ -8,11 +8,13 @@ import { RegisterController } from './backend/user/userController';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './backend/user/user.entity';
+import { AuthModule } from './backend/auth/auth.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
-    TypeOrmModule.forFeature([User])
+    TypeOrmModule.forFeature([User]),
+    AuthModule
   ],
 
 
