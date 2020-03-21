@@ -2,14 +2,15 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from '../user/user.entity';
 
 @Entity()
-export class animal {
+export class Animal {
 
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
   type: type;
 
+  @Column({type: 'varchar'})
   @ManyToOne(type => User, user => user.animals)
   owner: User;
 }
