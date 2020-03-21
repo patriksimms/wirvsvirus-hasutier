@@ -1,4 +1,4 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Render, Post, Body } from '@nestjs/common';
 
 @Controller('login')
 export class LoginController {
@@ -8,6 +8,12 @@ export class LoginController {
   @Render('login')
   index() {
     return {};
+  }
+
+  @Post('/submit')
+  submit(@Body() dto){
+
+    console.log(dto);
   }
 }
 

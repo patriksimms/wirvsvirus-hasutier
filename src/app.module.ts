@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { RegisterController } from './frontend/register/register.controller';
+import { RegisterUserController } from './frontend/registerUser/registerUser.controller';
 import { LoginController } from './frontend/login/login.controller';
 import { SearchController } from './frontend/search/search.controller';
 import { ProfileController } from './frontend/profile/profile.controller';
@@ -10,7 +10,7 @@ import { CreateSearchController } from './frontend/create-search/create-search.c
 
 @Module({
   imports: [],
-  controllers: [AppController, ProfileController, RegisterController, LoginController, SearchController, CreateOfferController, CreateSearchController],
+  controllers: [AppController, ProfileController, RegisterUserController, LoginController, SearchController, CreateOfferController, CreateSearchController],
   providers: [AppService],
 })
 export class AppModule {}
