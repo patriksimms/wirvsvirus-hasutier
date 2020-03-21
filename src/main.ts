@@ -10,6 +10,9 @@ async function bootstrap() {
   );
 
   hbs.registerPartials(join(__dirname, '../src/frontend/views/partials'));
+  hbs.registerHelper("setVar", function(varName, varValue, options) {
+    options.data.root[varName] = varValue;
+  });
 
   app.useStaticAssets(join(__dirname, '../src/frontend', 'public'));
   app.setBaseViewsDir(join(__dirname, '../src/frontend', 'views'));

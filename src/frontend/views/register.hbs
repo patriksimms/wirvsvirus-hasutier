@@ -1,14 +1,8 @@
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <title>Registrieren</title>
-
-    <link rel="stylesheet" type="text/css" href="/assets/materialize/materialize.min.css">
-</head>
-<body>
-{{> navbar }}
-<h2>Registrieren</h2>
-<hr>
+{{setVar "title" "Registrierung"}}
+{{> topInclude }}
+<div class="container"><h2>Registrieren</h2>
+    <hr>
+</div>
 <div class="container">
     <form class="input-field registerForm">
         <input id="firstNameRegister" type="text" placeholder="Vorname">
@@ -19,7 +13,7 @@
         <input id="emailRegister" type="email" placeholder="Email">
         <input id="phoneNumberRegister" type="tel" placeholder="Telefonnummer">
 
-        <input id="registerButton" type="button" value="Registrieren">
+        <input class="btn" id="registerButton" type="button" value="Registrieren">
     </form>
 </div>
-</body>
+{{> bottomInclude }}
