@@ -9,8 +9,6 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { user } from './backend/user/user.entity';
 
-import { join } from 'path';
-
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
