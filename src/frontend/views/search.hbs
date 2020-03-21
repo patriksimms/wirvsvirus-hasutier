@@ -1,0 +1,26 @@
+{{> topInclude }}
+
+<div class="container">
+    <div class="row s12 l12 xl12 right-align">
+        <h6>Adresse</h6>
+    </div>
+    <div class="row ">
+        <div class="col s12 l3 xl3 filteroffer">
+            {{#if true}}
+                {{>filterOffer}}
+            {{else}}
+                {{>filterHelper}}
+            {{/if}}
+        </div>
+        <div class="col s1 l1 xl1">
+        </div>
+        <div class="col s12 l8 xl8 filteroffer">
+            {{#if true}}
+                {{>containerOffer_Owner}}
+            {{else}}
+                {{>containerOffer_Customer}}
+            {{/if}}
+        </div>
+    </div>
+</div>
+{{>bottomInclude}}

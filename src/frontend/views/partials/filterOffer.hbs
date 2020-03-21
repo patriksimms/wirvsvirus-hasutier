@@ -1,0 +1,106 @@
+<form class="filterForm">
+
+    <!-- radius (suchkreis) -->
+    <div class="row">
+        <label>Radius:</label>
+        <select class="sc-input" data-test="zipRadius">
+            <option selected="" value="null">Umkreis</option>
+            <option value="1">1 km</option>
+            <option value="2">2 km</option>
+            <option value="5">5 km</option>
+            <option value="10">10 km</option>
+            <option value="15">15 km</option>
+            <option value="20">20 km</option>
+            <option value="25">25 km</option>
+            <option value="30">30 km</option>
+            <option value="40">40 km</option>
+        </select>
+    </div>
+    <div class="row">
+        <!--//tierart -->
+        <label for="species">Art</label>
+        <select class="filterDropDowns" id="species" name="species">
+            {{#each page.species}}
+                <option value="{{this.uuid}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <!-- Geschlecht Tier -->
+    <div class="row">
+        <label for="gender">Geschlecht des Hundes:</label>
+        <select id="gender">
+            <option value="male">Männlich</option>
+            <option value="female">Weiblich</option>
+            <option value="divers">Männlich kastriert</option>
+        </select>
+    </div>
+    <!--//Service -->
+    <div class="row">
+        <label for="service">Service</label>
+        <select id="service" name="service">
+            {{#each page.service}}
+                <option value="{{this.uuid}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <!-- Alter-->
+    <div class="row">
+        <label for="age">Alter:</label>
+        <p class="range-field">
+            <input type="range" id="test5" min="0" max="100"/>
+        </p>
+    </div>
+
+    <!-- Rasse -->
+    <div class="row">
+
+        <label for="breed">Rasse</label>
+        <select class="filterDropDowns" id="breed">
+            {{#each page.breed}}
+                <option value="{{this.uuid}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <!-- Weitere Filter -->
+
+    <!-- Groesse -->
+
+    <div class="row">
+        <label for="weight">Größe:</label>
+        <p class="range-field">
+            <input type="range" id="test5" min="0" max="100"/>
+        </p>
+    </div>
+
+    <!-- Gewicht -->
+    <div class="row">
+        <label for="weight">Gewicht:</label>
+        <p class="range-field">
+            <input type="range" id="test5" min="0" max="100"/>
+        </p>
+    </div>
+
+    <!-- Dringlichkeit -->
+    <div class="row ">
+        <label for="urgency">Dringlichkeit:</label>
+        <p>
+            <label>
+                <input class="with-gap" name="urgency" type="radio" checked/>
+                <span>Benötigt</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input class="with-gap" name="urgency" type="radio" checked/>
+                <span>Freiwillig</span>
+            </label>
+        </p>
+    </div>
+
+    <div class="row">
+    </div>
+
+
+</form>
+
+

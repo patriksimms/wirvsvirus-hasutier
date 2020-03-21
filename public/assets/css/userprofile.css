@@ -1,0 +1,17 @@
+#user-profile-img {
+    width: 100%;
+    height: auto;
+}
+
+#user-headline {
+    text-align: center;
+}
+
+.animal-card {
+    /*height: 20px;*/
+    margin: 2em 2em 2em 2em;
+}
+
+.animal-card > .card-image > img {
+    /*width: 20em;*/
+}
