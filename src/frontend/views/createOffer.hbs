@@ -9,42 +9,17 @@
         <form class="col l12" method="post" action="/">
             <div class="col l6">
                 <h5>Tierart(en)</h5>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" name="offerAnimalDog" id="offerAnimalDog">
-                        <span>Hunde</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" name="offerAnimalCat" id="offerAnimalCat">
-                        <span>Katzen</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" name="offerAnimalFish" id="offerAnimalFish">
-                        <span>Fische</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" name="offerAnimalHorse" id="offerAnimalHorse">
-                        <span>Pferde</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" name="offerAnimalMouse" id="offerAnimalMouse">
-                        <span>Mäuse</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" name="offerAnimalBird" id="offerAnimalBird">
-                        <span>Vögel</span>
-                    </label>
-                </div>
+                {{#each animals}}
+                    <div class="row">
+                        <label>
+                            <script>
+                                let animalIdentifier = "offerAnimal" + {{this.type}};
+                            </script>
+                            <input type="checkbox" name=animalIdentifier id=animalIdentifier>
+                            <span>{{this.type}}</span>
+                        </label>
+                    </div>
+                {{/each}}
             </div>
             <div class="col l6">
                 <h5>Service(s)</h5>
