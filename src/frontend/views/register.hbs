@@ -1,19 +1,47 @@
 {{setVar "title" "Registrierung"}}
 {{> topInclude }}
-<div class="container"><h2>Registrieren</h2>
-    <hr>
+<div class="container">
+    <h2>Registrieren</h2>
+    <hr id="siteHeaderUnderline">
 </div>
 <div class="container">
-    <form class="input-field registerForm">
-        <input id="firstNameRegister" type="text" placeholder="Vorname">
-        <input id="lastNameRegister" type="text" placeholder="Nachname">
+    <div class="row">
+        <form class="registerForm col l12">
+            <div class="row">
+                <div class="input-field col l6">
+                    <input id="firstNameRegister" type="text"
+                           class="validate">
+                    <label for="firstNameRegister">Vorname</label>
+                </div>
+                <div class="input-field col l6">
+                    <input id="lastNameRegister" type="text" class="validate">
+                    <label for="lastNameRegister">Nachname</label>
+                </div>
+            </div>
 
-        <input id="passwordRegister" type="password" placeholder="Passwort">
+            <div class="row">
+                <div class="input-field col l12">
+                    <label for="passwordRegister">Passwort</label>
+                    <input id="passwordRegister" type="password" class="validate">
+                </div>
+            </div>
 
-        <input id="emailRegister" type="email" placeholder="Email">
-        <input id="phoneNumberRegister" type="tel" placeholder="Telefonnummer">
+            <div class="row">
+                <div class="input-field col l12">
+                    <label for="emailRegister">Email</label>
+                    <input id="emailRegister" type="email" class="validate">
+                </div>
+            </div>
 
-        <input class="btn" id="registerButton" type="button" value="Registrieren">
-    </form>
+            <div class="row">
+                <div class="input-field col l12">
+                    <label for="phoneNumberRegister">Telefonnummer</label>
+                    <input id="phoneNumberRegister" type="tel">
+                </div>
+            </div>
+
+            <input class="btn" id="registerButton" type="submit" value="Registrieren">
+        </form>
+    </div>
 </div>
 {{> bottomInclude }}
