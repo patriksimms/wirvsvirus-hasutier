@@ -6,42 +6,42 @@
 </div>
 <div class="container">
     <div class="row">
-        <form class="col l12">
+        <form class="col l12" method="post" action="/">
             <div class="col l6">
                 <h5>Tierart(en)</h5>
                 <div class="row">
                     <label>
-                        <input type="checkbox" id="offerAnimalDog">
+                        <input type="checkbox" name="offerAnimalDog" id="offerAnimalDog">
                         <span>Hunde</span>
                     </label>
                 </div>
                 <div class="row">
                     <label>
-                        <input type="checkbox" id="offerAnimalCat">
+                        <input type="checkbox" name="offerAnimalCat" id="offerAnimalCat">
                         <span>Katzen</span>
                     </label>
                 </div>
                 <div class="row">
                     <label>
-                        <input type="checkbox" id="offerAnimalFish">
+                        <input type="checkbox" name="offerAnimalFish" id="offerAnimalFish">
                         <span>Fische</span>
                     </label>
                 </div>
                 <div class="row">
                     <label>
-                        <input type="checkbox" id="offerAnimalHorse">
+                        <input type="checkbox" name="offerAnimalHorse" id="offerAnimalHorse">
                         <span>Pferde</span>
                     </label>
                 </div>
                 <div class="row">
                     <label>
-                        <input type="checkbox" id="offerAnimalMouse">
+                        <input type="checkbox" name="offerAnimalMouse" id="offerAnimalMouse">
                         <span>Mäuse</span>
                     </label>
                 </div>
                 <div class="row">
                     <label>
-                        <input type="checkbox" id="offerAnimalBird">
+                        <input type="checkbox" name="offerAnimalBird" id="offerAnimalBird">
                         <span>Vögel</span>
                     </label>
                 </div>
@@ -50,37 +50,37 @@
                 <h5>Service(s)</h5>
                 <div class="row">
                     <label>
-                        <input type="checkbox" id="offerServiceWalk">
+                        <input type="checkbox" name="offerServiceWalk" id="offerServiceWalk">
                         <span>Gassi gehen</span>
                     </label>
                 </div>
                 <div class="row">
                     <label>
-                        <input type="checkbox" id="offerServiceFood">
+                        <input type="checkbox" name="offerServiceFood" id="offerServiceFood">
                         <span>Futter kaufen</span>
                     </label>
                 </div>
                 <div class="row">
                     <label>
-                        <input type="checkbox" id="offerServiceShortInternal">
+                        <input type="checkbox" name="offerServiceShortInternal" id="offerServiceShortInternal">
                         <span>Kurzfristige Betreuung (intern)</span>
                     </label>
                 </div>
                 <div class="row">
                     <label>
-                        <input type="checkbox" id="offerServiceShortExternal">
+                        <input type="checkbox" name="offerServiceShortExternal" id="offerServiceShortExternal">
                         <span>Kurzfristige Betreuung (extern)</span>
                     </label>
                 </div>
                 <div class="row">
                     <label>
-                        <input type="checkbox" id="offerServiceLongInternal">
+                        <input type="checkbox" name="offerServiceLongInternal" id="offerServiceLongInternal">
                         <span>Langfristige Betreuung (intern)</span>
                     </label>
                 </div>
                 <div class="row">
                     <label>
-                        <input type="checkbox" id="offerServiceLongExternal">
+                        <input type="checkbox" name="offerServiceLongExternal" id="offerServiceLongExternal">
                         <span>Langfristige Betreuung (extern)</span>
                     </label>
                 </div>
@@ -89,7 +89,8 @@
             <div class="row">
                 <div class="col l12 input-field">
                     <label for="offerDescription">Beschreibung des Angebots</label>
-                    <textarea id="offerDescription" class="materialize-textarea" maxlength="600"></textarea>
+                    <textarea id="offerDescription" name="offerDescription" class="materialize-textarea"
+                              maxlength="600"></textarea>
                     <span class="helper-text">Maximal 600 Zeichen</span>
                 </div>
             </div>

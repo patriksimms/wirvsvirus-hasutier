@@ -1,6 +1,6 @@
 <div class="filter-group">
     <form class="filterForm">
-        <div class="column">
+        <div class="column filterGroup">
             <!-- Service -->
             <div class="row">
                 <label for="service">Service</label>
@@ -17,8 +17,9 @@
             <!-- Alter -->
             <div class="row">
                 <label for="age">Alter:</label>
-                <p class="range-field">
-                    <input type="range" id="test5" min="0" max="100"/>
+                <p class="range-field center-align">
+                    <span id="sliderValue"></span><br>
+                    <input type="range" min="0" max="100" step="1" name="sld" value="50" onchange="showValue(this.value)">
                 </p>
             </div>
             console.log(__dirname);
