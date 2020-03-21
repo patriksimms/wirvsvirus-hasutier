@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: User REST API
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths: {}
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        lastname:
+          type: string
+        phone:
+          type: string
+      x-examples:
+        Sample User:
+          id: 2
+          email: max@mustermann.de
+          name: max
+          lastName: mustermann
+          phone: '651646468'

@@ -1,0 +1,16 @@
+<div class="listLayout-group">
+    <div class="listOverview">
+        <!--some personal info for example address -->
+    </div>
+    <div class="list">
+        {{>containerOffer_Customer}}
+
+        {{#each page.containerTab}}
+            {{#if cond1}}
+                <div> {{>containerOffer_Customer container=.}}    </div>
+            {{else}}
+                <div> {{>containerOffer_Owner container=.}}    </div>
+            {{/if}}
+        {{/each}}
+    </div>
+</div>

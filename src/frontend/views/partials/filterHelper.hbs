@@ -1,0 +1,38 @@
+<div class="filter-group">
+    <form class="filterForm">
+        <div class="column">
+            <!-- Service -->
+            <div class="row">
+                <label for="service">Service</label>
+                <select id="service" name="service">
+                    {{#each page.service}}
+                        <option value="{{this.uuid}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <!-- Erfahrung -->
+            <div class="row">
+                <!-- TODO-->
+            </div>
+            <!-- Alter -->
+            <div class="row">
+                <label for="age">Alter:</label>
+                <p class="range-field">
+                    <input type="range" id="test5" min="0" max="100"/>
+                </p>
+            </div>
+            console.log(__dirname);
+            <!-- Geschlecht -->
+            <div class="row">
+                <div class="">
+                    <select id="gender">
+                        <option value="male">Männlich</option>
+                        <option value="female">Weiblich</option>
+                        <option value="divers">Divers</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

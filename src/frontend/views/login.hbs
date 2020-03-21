@@ -1,0 +1,38 @@
+{{setVar "title" "Login"}}
+{{> topInclude }}
+<div class="container">
+    <h2>Login</h2>
+    <hr id="siteHeaderUnderline">
+</div>
+<div class="container">
+    <div class="loginInput row">
+        <form class="col l12">
+            <div class="row">
+                <div class="input-field col l12">
+                    <label for="emailLogin">Email</label>
+                    <input id="emailLogin" type="email" class="validate">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col l12">
+                    <label for="passwordLogin">Passwort</label>
+                    <input id="passwordLogin" type="password" class="validate">
+                </div>
+            </div>
+            <input id="loginButton" type="submit" value="Login" class="btn">
+        </form>
+    </div>
+    <div class="passwordForgotten">
+        <p>Passwort vergessen?
+            <br>
+            <a href="">Passwort zurücksetzen</a>
+        </p>
+    </div>
+    <div>
+        <p>Noch keinen Account?
+            <br>
+            <a href="">Hier registrieren</a>
+        </p>
+    </div>
+</div>
+{{> bottomInclude }}

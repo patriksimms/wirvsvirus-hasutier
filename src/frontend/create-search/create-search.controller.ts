@@ -1,11 +1,11 @@
 import { Controller, Get, Render } from '@nestjs/common';
 
-@Controller()
-export class AppController {
+@Controller('create-search')
+export class CreateSearchController {
+
   @Get()
   @Render('createSearch')
-  root() {
-    return {message: "hello world"};
+  index() {
+    return {};
   }
 }
-
