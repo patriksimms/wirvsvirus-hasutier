@@ -20,13 +20,16 @@ import { UserModule } from './backend/user/user.module';
 import { NoteModule } from './backend/notes/note.module';
 import { AnimalModule } from './backend/animal/animal.module';
 import { AnimalType } from './backend/animal/animalType.entity';
+import { ServiceType } from './backend/services/services.entity';
+import { ServiceController } from './backend/services/serviceController';
+import { ServiceService } from './backend/services/serviceService';
 
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
     AuthModule,
-    TypeOrmModule.forFeature([User, Animal, AnimalType]),
+    TypeOrmModule.forFeature([User, Animal, AnimalType, ServiceType]),
     UserModule,
     HttpModule,
     NoteModule,
@@ -34,8 +37,8 @@ import { AnimalType } from './backend/animal/animalType.entity';
 
   ],
 
-  controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, SearchController, CreateOfferController, CreateSearchController],
-  providers: [AppService, AnimalService, UserService],
+  controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, SearchController, CreateOfferController, CreateSearchController, ServiceController],
+  providers: [AppService, AnimalService, UserService, ServiceService],
   exports: [TypeOrmModule],
 })
 export class AppModule {
