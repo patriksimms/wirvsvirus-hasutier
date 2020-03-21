@@ -11,4 +11,4 @@ function showValue2(x)
 function showValue3(x)
 {
   document.getElementById("sliderValue3").innerHTML=x;
-}
+}w

@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { HttpModule, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AnimalController } from './backend/animal/animalController';
 import { AnimalService } from './backend/animal/animalService';
@@ -25,7 +25,7 @@ import { UserModule } from './backend/user/user.module';
     AuthModule,
     TypeOrmModule.forFeature([User, Animal]),
     UserModule,
-
+    HttpModule
   ],
 
   controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, SearchController, CreateOfferController, CreateSearchController],
