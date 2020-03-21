@@ -1,10 +1,10 @@
 import { HttpService, Injectable } from '@nestjs/common';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { response } from 'express';
 
 @Injectable()
 export class BeConnectionService {
+
 
   constructor(private httpService: HttpService) {
 
@@ -13,4 +13,15 @@ export class BeConnectionService {
   async getAllAnimals(){
     return this.httpService.get('http://localhost:3000/animal/types').pipe(map(response => response.data)).toPromise();
   }
+
+  /*async getAllServices(){
+    return this.httpService.get('http://localhost:3000/service/types').pipe(map(response => response.data)).toPromise();
+  }*/
+
+  async registerUser(data : any){
+    const response = await this.httpService.post('http://localhost:3000/register', data).pipe(map(response => response.status)).toPromise();
+
+    return response;
+  }
+
 }

@@ -8,7 +8,9 @@ export class CreateOfferController {
   @Render('createOffer')
   async index() {
     const ser = new BeConnectionService(new HttpService());
+    let services;
+    //const services = await ser.getAllServices();
     const animals = await ser.getAllAnimals();
-    return { 'animals': animals };
+    return { 'animals': animals, 'services': services };
   }
 }

@@ -1,4 +1,4 @@
-import { Controller, Get, Render, Post, Body, Param, Res } from '@nestjs/common';
+import { Controller, Get, Render, Post, Body, Param, Res, Redirect } from '@nestjs/common';
 
 @Controller('login')
 export class LoginController {
