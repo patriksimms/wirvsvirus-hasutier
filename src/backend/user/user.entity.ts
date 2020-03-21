@@ -1,5 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { animal } from '../animal/animal.entity';
 
 @Entity()
 export class user {
@@ -17,4 +17,7 @@ export class user {
 
   @Column()
   phone: string;
+
+  @OneToMany(type => animal, animal => animal.owner)
+  animals: animal[];
 }

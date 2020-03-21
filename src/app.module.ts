@@ -6,10 +6,13 @@ import { UserController } from './backend/user/userController';
 import { UserService } from './backend/user/userService';
 import { RegisterController } from './backend/user/userController';
 import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { user } from './backend/user/user.entity';
 
 @Module({
-  imports: [],
+  imports: [TypeOrmModule.forFeature([user])],
   controllers: [AppController, AnimalController, UserController, RegisterController],
   providers: [AppService, AnimalService, UserService],
+  exports: [TypeOrmModule]
 })
 export class AppModule {}
