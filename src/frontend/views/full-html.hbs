@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ global.title }}: {{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{global.style}}">
+</head>
+<body>
+<div class="content">
+    {{> header}}
+    {{> navbar}}
+    {{ content }}
+</div>
+{{> footer}}
+</body>
+</html>

@@ -1,0 +1,58 @@
+<div class="filter">
+    <form class="filterForm">
+        <!--//tierart -->
+        <label for="species">Art</label>
+        <select class="filterDropDowns" id="species" name="species">
+            {{#each page.species}}
+                <option value="{{this.uuid}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+        <!--//Service -->
+        <label for="service">Service</label>
+        <select id="service" name="service">
+            {{#each page.service}}
+                <option value="{{this.uuid}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+        <!-- Alter-->
+
+        <div class="ageslider">
+            <label for="age">Alter</label>
+            <input type="range" min="1" max="100" value="50" class="slider" id="myRange" name="age">
+        </div>
+        <!-- Rasse -->
+        <label for="breed">Rasse</label>
+        <select class="filterDropDowns" id="breed">
+            {{#each page.breed}}
+                <option value="{{this.uuid}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+        <!-- Weitere Filter -->
+        <div class="extended filter">
+            <!-- Rezensionen
+            Not sure how to display yet
+            -->
+            <!-- Groesse -->
+            <div class="interval-input-group">
+                    <span id="interval-from">
+                    </span>
+                <span id="interval-to">
+                    </span>
+            </div>
+            <!-- Gewicht -->
+            <div class="interval-input-group">
+                    <span id="interval-from">
+                    </span>
+                <span id="interval-to">
+                    </span>
+            </div>
+            <!-- Dringlichkeit -->
+            <div>
+                <input type="radio" id="needed" name="urgency" value="needed">
+                <label for="needed">Needed</label><br>
+                <input type="radio" id="volunteering" name="urgency" value="volunteering">
+                <label for="volunteering">Volunteering</label><br>
+            </div>
+        </div>
+    </form>
+</div>
