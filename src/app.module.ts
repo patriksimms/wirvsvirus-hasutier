@@ -10,18 +10,21 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './backend/user/user.entity';
 import { AuthModule } from './backend/auth/auth.module';
 import { Animal } from './backend/animal/animal.entity';
+import { UserModule } from './backend/user/user.module';
 
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
     AuthModule,
-    TypeOrmModule.forFeature([User, Animal])
+    TypeOrmModule.forFeature([User, Animal]),
+    UserModule,
 
   ],
 
   controllers: [AppController, AnimalController, UserController, RegisterController],
   providers: [AppService, AnimalService, UserService],
-  exports: [TypeOrmModule]
+  exports: [TypeOrmModule],
 })
-export class AppModule { }
+export class AppModule {
+}
