@@ -1,10 +1,26 @@
+<!--<div class="navbar">-->
+<!--    <a id="searchingNavEntry">Suche</a>-->
+<!--    <a id="offeringNavEntry">Biete</a>-->
+<!--    <a id="login">Anmelden/Registieren</a>-->
+<!--</div>-->
+
+
 <nav>
-    <div class="nav-wrapper">
-        <a href="#" class="brand-logo left">Logo</a>
-        <ul class="right">
-            <li><a id="searchingNavEntry">Suche</a></li>
-            <li><a id="offeringNavEntry">Biete</a></li>
-            <li><a id="login">Anmelden/Registieren</a></li>
+    <div class="nav-wrapper container">
+        <a href="#" class="brand-logo">WirVsVirus</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a id="searchingNavEntry" href="sass.html">Suche</a></li>
+            <li><a id="offeringNavEntry" href="badges.html">Biete</a></li>
+            <li><a id="login" >Anmelden und Registrieren</a></li>
         </ul>
     </div>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a id="searchingNavEntry" href="sass.html">Suche</a></li>
+        <li><a id="offeringNavEntry" href="badges.html">Biete</a></li>
+        <li><a id="login" >Anmelden und Registrieren</a></li>
+    </ul>
 </nav>
+
+<script type="text/javascript" src="assets/materialize/materialize.min.js"></script>

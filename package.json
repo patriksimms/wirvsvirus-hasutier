@@ -30,7 +30,8 @@
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
     "sqlite3": "^4.1.1",
-    "hbs": "^4.1.0"
+    "hbs": "^4.1.0",
+    "handlebars-layouts": "^3.1.4"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
