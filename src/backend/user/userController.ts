@@ -1,13 +1,13 @@
 import { Controller, Get, Post, Delete, Body, Param } from '@nestjs/common';
 import { UserService } from './userService'
-import { user } from './user';
+import { user } from './user.entity';
 
 @Controller('profile')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get(':id')
-  getProfile(@Param() params): string {
+  getProfile(@Param() params): user {
     return this.userService.getUser(params);
   }
 
