@@ -2,20 +2,24 @@
 <head>
     <meta charset="utf-8"/>
     <title>Registrieren</title>
+
+    <link rel="stylesheet" type="text/css" href="/assets/materialize/materialize.min.css">
 </head>
 <body>
 {{> navbar }}
 <h2>Registrieren</h2>
 <hr>
-<form class="registerForm">
-    <input id="firstNameRegister" type="text" placeholder="Vorname">
-    <input id="lastNameRegister" type="text" placeholder="Nachname">
+<div class="container">
+    <form class="input-field registerForm">
+        <input id="firstNameRegister" type="text" placeholder="Vorname">
+        <input id="lastNameRegister" type="text" placeholder="Nachname">
 
-    <input id="passwordRegister" type="password" placeholder="Passwort">
+        <input id="passwordRegister" type="password" placeholder="Passwort">
 
-    <input id="emailRegister" type="email" placeholder="Email">
-    <input id="phoneNumberRegister" type="tel" placeholder="Telefonnummer">
+        <input id="emailRegister" type="email" placeholder="Email">
+        <input id="phoneNumberRegister" type="tel" placeholder="Telefonnummer">
 
-    <input id="registerButton" type="button" value="Registrieren">
-</form>
+        <input id="registerButton" type="button" value="Registrieren">
+    </form>
+</div>
 </body>
