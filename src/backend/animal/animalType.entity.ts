@@ -1,11 +1,8 @@
-import { Column, Entity, ObjectIdColumn, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, PrimaryColumn} from 'typeorm';
 
 @Entity()
 export class AnimalType {
 
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
-  @Column()
-  type: string;
+  @PrimaryColumn()
+  name: string;
 }
