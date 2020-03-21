@@ -11,8 +11,11 @@ export class UserService {
   getUser(id: string): user {
     let response: Promise<user> = this.userRepository.findOne(id);
     response.then((user) => {
+      console.log("funden");
+      console.log(user);
       return user;
     }, (reason) => {
+      console.log("not");
       return null;
     });
     return null;
@@ -21,8 +24,10 @@ export class UserService {
   createUser(data: user): boolean {
     let response: Promise<user> = this.userRepository.save(data);
     response.then((user) => {
+      console.log("funden");
       return true;
     }, (reason) => {
+      console.log("nicht funden")
       return false;
     });
     return false;

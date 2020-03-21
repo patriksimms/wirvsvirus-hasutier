@@ -8,7 +8,9 @@ export class UserController {
 
   @Get(':id')
   getProfile(@Param() params): user {
-    return this.userService.getUser(params);
+    let bums = this.userService.getUser(params);
+    console.log(bums);
+    return bums;
   }
 
   @Post()
