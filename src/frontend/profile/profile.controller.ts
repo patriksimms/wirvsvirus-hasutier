@@ -1,5 +1,6 @@
-import { Controller, Get, Render, UseGuards, Request } from '@nestjs/common';
+import { Controller, Get, Render, UseGuards, Request, Param, HttpService } from '@nestjs/common';
 import { AuthenticatedGuard } from 'src/backend/auth/authenticated.guard';
+import { BeConnectionService } from '../../services/beConnectionService';
 
 @Controller('userprofile')
 export class ProfileController {
@@ -19,7 +20,9 @@ export class ProfileController {
 
     return { user: user, userImage: userImage, animals: animals };
 
-    
+
+  }
+
   @UseGuards(AuthenticatedGuard)
   index(@Request() req) {
     return req.user;
