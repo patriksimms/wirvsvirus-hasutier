@@ -1,0 +1,28 @@
+{{ setVar "offer" true }}
+{{> topInclude }}
+
+<div class="container">
+
+    <div class="row l1 s1 xl1"></div>
+    <ul class=" row l10 s10 xl10 tabs tabs-fixed-width tab-demo z-depth-1 taboffer">
+        <li class="tab col s6"><a target="_self" href="">Für Hunde besitzer</a></li>
+        <li class="tab col s6"><a target="_self" href="/searchHelper">Für Anbieter</a></li>
+    </ul>
+    <div class="row l1 s1 xl1"></div>
+    <div class="row s12 l12 xl12">
+
+        <div class="row ">
+            <div id="test1" class="col s12 l3 xl3 filteroffer">
+                {{>filterOffer}}
+            </div>
+            <div class="col s1 l1 xl1">
+            </div>
+            <div id="#test2" class="col s12 l8 xl8 filteroffer">
+                {{>containerOffer_Owner}}
+
+            </div>
+        </div>
+    </div>
+
+
+{{>bottomInclude}}
