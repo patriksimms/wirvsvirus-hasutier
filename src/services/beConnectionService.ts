@@ -18,7 +18,7 @@ export class BeConnectionService {
   }
 
   async registerUser(data : any){
-    const response = await this.httpService.post('http://localhost:3000/register', data).pipe(map(response => response.status)).toPromise();
+    const response = await this.httpService.post('http://localhost:3000/register', data).pipe(map(response => response.data)).toPromise();
 
     return response;
   }

@@ -52,7 +52,7 @@
                 </div>
                 <div class="input-field col l6">
                     <label for="searchPLZ">PLZ der Suchregion</label>
-                    <input type="number" name="searchPLZ" id="searchPLZ" class="validate">
+                    <input type="text" name="searchPLZ" id="searchPLZ" class="validate">
                 </div>
             </div>
 
@@ -72,6 +72,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
     let elems = document.querySelectorAll('.datepicker');
+    let options;
     let instances = M.Datepicker.init(elems, options);
 });</script>
 {{> bottomInclude }}
