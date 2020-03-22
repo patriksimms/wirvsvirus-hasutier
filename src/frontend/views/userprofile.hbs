@@ -5,7 +5,7 @@
 {{setVar "userName" "Alexander Else"}}
 {{> topInclude }}
 <div class="container">
-    <h1 id="user-headline">{{userName}}</h1>
+    <h1 id="user-headline">{{email}}</h1>
 </div>
 <div class="container">
     <div class="row">
@@ -24,9 +24,9 @@
     </div>
     <div class="row">
         <div class="col l6 s12">
-            <p class="flow-text">Name:</p>
-            <p class="flow-text">Nachname:</p>
-            <p class="flow-text">Alter:</p>
+            <p class="flow-text">Name: {{name}}</p>
+            <p class="flow-text">Nachname: {{lastName}}</p>
+            <p class="flow-text">Alter: {{birthDate}} </p>
             <p class="flow-text">Erfahrung:</p>
             <div id="expierence-wrapper">
                 {{#each expierence}}
