@@ -11,7 +11,7 @@
                 <h5>Tierart(en)</h5>
                 {{#each animals}}
                     <div class="row">
-                        <label>
+                        <label class="input-field">
                             <input type="checkbox" name="offerAnimal{{this.name}}" id="offerAnimal{{this
                             .name}}">
                             <span>{{this.name}}</span>
@@ -23,7 +23,7 @@
                 <h5>Service(s)</h5>
                 {{#each services}}
                     <div class="row">
-                        <label>
+                        <label class="input-field">
                             <input type="checkbox" name="offerService{{this.name}}" id="offerService{{this
                             .name}}">
                             <span>{{this.name}}</span>

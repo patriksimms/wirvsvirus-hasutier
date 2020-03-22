@@ -20,9 +20,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col l12">
+                <div class="input-field col l6">
                     <label for="animalName">Name</label>
                     <input type="text" id="animalName" name="animalName">
+                </div>
+                <div class="input-field col l6 file-field">
+                    <div class="file-path-wrapper col l10">
+                        <input class="file-path validate" type="text"
+                               placeholder="Profilbild auswählen"/>
+                    </div>
+                    <div class="btn col l2">
+                        <span>Browse</span>
+                        <input type="file"/>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -40,6 +50,15 @@
                     <span class="helper-text">Größe in cm</span>
                 </div>
             </div>
+            <div class="row">
+                <div class="input-field col l12">
+                    <label for="animalDescription">Beschreibung</label>
+                    <textarea name="animalDescription" id="animalDescription" maxlength="600"
+                              class="materialize-textarea"></textarea>
+                    <span class="helper-text">Maximal 600 Zeichen</span>
+                </div>
+            </div>
+
             <input type="submit" class="btn" value="Hinzufügen">
         </form>
     </div>
