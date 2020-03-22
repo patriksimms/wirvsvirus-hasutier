@@ -25,24 +25,43 @@
             </div>
         </div>
         <form class="col l12" method="post" action="/create-search/submit">
-            <div class="col l6">
-                <h5>Service(s)</h5>
-                {{#each services}}
-                    <div class="row">
-                        <label>
-                            <input type="checkbox" name="offerService{{this.name}}" id="offerService{{this.name}}">
-                            <span>{{this.name}}</span>
-                        </label>
+            <div class="row">
+                <div class="col l6">
+                    <h5>Service(s)</h5>
+                    {{#each services}}
+                        <div class="row">
+                            <label>
+                                <input type="checkbox" name="offerService{{this.name}}" id="offerService{{this.name}}">
+                                <span>{{this.name}}</span>
+                            </label>
+                        </div>
+                    {{/each}}
+                </div>
+                <div class="col l6">
+                    <h5>Tier(e) auswählen</h5>
+                    <div>
+                        <a>Tier(e) hinzufügen</a>
                     </div>
-                {{/each}}
-            </div>
-            <div class="col l6">
-                <h5>Tier(e) auswählen</h5>
-                <div>
-                    <a>Tier(e) hinzufügen</a>
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col l6">
+                    <label for="searchDate">Ab wann wird gesucht</label>
+                    <input type="date" placeholder="" name="searchDate" id="searchDate">
+                </div>
+                <div class="col l6">
+                    <label for="searchDuration">Suchdauer</label>
+                    <select name="searchDuration" id="searchDuration">
+                        <option value="Unbekannt" selected>Unbekannt</option>
+                        <option value="<1 Woche"><1 Woche</option>
+                        <option value="1-2 Woche">1-2 Woche</option>
+                        <option value="2-3 Woche">2-3 Woche</option>
+                        <option value="3-4 Woche">3-4 Woche</option>
+                    </select>
+                </div>
+            </div>
+            
             <div class="row">
                 <div class="col l12 input-field">
                     <label for="searchDescription">Beschreibung der Suche</label>

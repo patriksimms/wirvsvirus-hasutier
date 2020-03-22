@@ -31,7 +31,9 @@ export class CreateSearchController {
     //TODO add relevant Data when API is ready
     const offer = {
       'serviceList': serviceList,
-      'description': body.searchDescription
+      'description': body.searchDescription,
+      'startDate': body.searchDate,
+      'duration': body.searchDuration
     };
 
     let res;
