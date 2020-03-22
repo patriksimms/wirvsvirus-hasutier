@@ -17,20 +17,21 @@ export class CreateAnimalController {
   async submit(@Body() body){
     const ser = new BeConnectionService(new HttpService());
 
-    //TODO FINISH WHEN API CALL IS READY
     const animal = {
-      "species": body.animalSpecies,
+      "type": body.animalSpecies,
       "name": body.animalName,
       "age": body.animalAge,
       "weight": body.animalWeight,
-      "height": body.animalHeight,
-      "owner": "aa899734-67a7-4772-a1c8-f51bb4655bfd"
+      "size": body.animalHeight,
+      "description": body.animalDescription,
+      "owner": "c7b8df97-0592-41e2-9ef0-b60317dca89c"
     };
 
     let res;
 
     try {
       res = await ser.addAnimal(animal);
+      console.log(res);
     } catch (e) {
       console.log("Error at Adding Animal")
       //TODO ERRORHANDLING
