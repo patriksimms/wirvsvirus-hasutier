@@ -1,6 +1,18 @@
-import { Controller, Get, Post, Delete, Body, Param, Res, HttpStatus, BadRequestException } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Delete,
+  Body,
+  Param,
+  Res,
+  HttpStatus,
+  BadRequestException,
+  UseInterceptors, UploadedFile,
+} from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entity';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('profile')
 export class UserController {
@@ -25,6 +37,21 @@ export class UserController {
   @Delete(':id')
   deleteUser(@Param() params) {
     this.userService.deleteUser(params);
+  }
+
+  @Post(':userid/upload')
+  @UseInterceptors(FileInterceptor('image'))
+  uploadFile(@Param('userid') userId, @UploadedFile()  file) {
+    this.userService.addImageToUser(userId, file.filename);
+    console.log(userId);
+    console.log('file: ' + file.filename);
+  }
+
+  @Get(':userId/image')
+  async getUserImage(@Param('userId') userId, @Res() res) {
+    let user = await this.userService.getUser(userId);
+    console.log(user.id);
+    res.sendFile(user.imageName, { root: 'uploads' });
   }
 }
 

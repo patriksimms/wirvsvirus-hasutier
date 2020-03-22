@@ -34,6 +34,9 @@ export class User {
   @Column()
   hashedPassword: string;
 
+  @Column()
+  imageName: string;
+
   @OneToMany(type => Animal, animal => animal.owner)
   animals: Animal[];
 

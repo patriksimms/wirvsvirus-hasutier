@@ -7,8 +7,9 @@ import { JwtService } from '@nestjs/jwt';
 @Injectable()
 export class UserService {
   constructor(
-    @InjectRepository(User) private userRepository: Repository<User>
-  ) {}
+    @InjectRepository(User) private userRepository: Repository<User>,
+  ) {
+  }
 
   async getUser(id: string): Promise<User> {
     return await this.userRepository.findOne(id);
@@ -25,6 +26,12 @@ export class UserService {
 
   async deleteUser(id: string): Promise<void> {
     await this.userRepository.delete(id);
+  }
+
+  async addImageToUser(id: string, imageName: string) {
+    await this.userRepository.update({ id: id }, { imageName: imageName });
+
+
   }
 
 }
