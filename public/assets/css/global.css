@@ -12,6 +12,21 @@ main {
     margin-bottom: 5vh;
 }
 
+nav {
+    background-color: #b83b5e;
+}
+
+.page-footer {
+    background-color: #b83b5e
+}
+
+.btn {
+    background-color: #2B2E4A !important;
+}
+
+button {
+    background-color: #084177 !important;
+}
 .footer-copyright .row {
     margin-bottom: 0;
 }
