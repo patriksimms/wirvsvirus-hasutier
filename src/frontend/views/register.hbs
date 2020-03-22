@@ -20,23 +20,32 @@
             </div>
 
             <div class="row">
-                <div class="input-field col l12">
+                <div class="input-field col l6">
                     <label for="passwordRegister">Passwort</label>
                     <input id="passwordRegister" type="password" name="passwordRegister" class="validate">
                 </div>
+                <div class="input-field col l6">
+                    <label class="active" for="birthDateRegister">Geburtstag</label>
+                    <input placeholder="" type="date" id="birthDateRegister" name="birthDateRegister" class="validate">
+                </div>
             </div>
 
             <div class="row">
-                <div class="input-field col l12">
+                <div class="input-field col l6">
                     <label for="emailRegister">Email</label>
                     <input id="emailRegister" type="email" name="emailRegister" class="validate">
+                </div>
+                <div class="input-field col l6">
+                    <label for="phoneNumberRegister">Telefonnummer</label>
+                    <input id="phoneNumberRegister" name="phoneNumberRegister" type="tel">
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col l12">
-                    <label for="phoneNumberRegister">Telefonnummer</label>
-                    <input id="phoneNumberRegister" name="phoneNumberRegister" type="tel">
+                    <label for="descriptionRegister">Kurzbeschreibung</label>
+                    <textarea id="descriptionRegister" name="descriptionRegister" class="materialize-textarea" maxlength="600"></textarea>
+                    <span class="helper-text">Maximal 400 Zeichen</span>
                 </div>
             </div>
 

@@ -6,16 +6,14 @@
 </div>
 <div class="container">
     <div class="row">
-        <form class="col l12" method="post" action="/">
+        <form class="col l12" method="post" action="/create-offer/submit">
             <div class="col l6">
                 <h5>Tierart(en)</h5>
                 {{#each animals}}
                     <div class="row">
                         <label>
-                            <script>
-                                let animalIdentifier = 'offerAnimal' + {{this.name}};
-                            </script>
-                            <input type="checkbox" name=animalIdentifier id=animalIdentifier>
+                            <input type="checkbox" name="offerAnimal{{this.name}}" id="offerAnimal{{this
+                            .name}}">
                             <span>{{this.name}}</span>
                         </label>
                     </div>
@@ -26,10 +24,8 @@
                 {{#each services}}
                     <div class="row">
                         <label>
-                            <script>
-                                let serviceIdentifier = 'offerService' + {{this.name}};
-                            </script>
-                            <input type="checkbox" name=serviceIdentifier id=serviceIdentifier>
+                            <input type="checkbox" name="offerService{{this.name}}" id="offerService{{this
+                            .name}}">
                             <span>{{this.name}}</span>
                         </label>
                     </div>
