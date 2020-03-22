@@ -15,6 +15,10 @@ export class OfferController {
   constructor(private readonly offerService: OfferService) {
   }
 
+  @Get()
+  async getAllOffers(): Promise<Offer[]> {
+    return await this.offerService.getAllOffers();
+  }
 
   @Get('plz/:plz')
   async getOffersFromPlz(@Param() params): Promise<any> {

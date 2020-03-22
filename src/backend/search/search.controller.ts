@@ -7,6 +7,10 @@ export class SearchController {
   constructor(private readonly searchService: SearchService) {
   }
 
+  @Get()
+  async getAllSearches(): Promise<Search[]> {
+    return await this.searchService.getAllSearches();
+  }
 
   @Get('plz/:plz')
   async getSearchesFromPlz(@Param() params): Promise<any> {

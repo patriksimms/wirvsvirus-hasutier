@@ -10,6 +10,10 @@ export class OfferService {
     @InjectRepository(Offer) private offerRepository: Repository<Offer>) {
   }
 
+  async getAllOffers(): Promise<Offer[]> {
+    return await this.offerRepository.find();
+  }
+
   async createOffer(data: Offer): Promise<Offer> {
     return await this.offerRepository.save(data);
   }

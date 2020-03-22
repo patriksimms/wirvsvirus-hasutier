@@ -7,7 +7,10 @@ import { Search } from './search.entity';
 export class SearchService {
   constructor(
     @InjectRepository(Search) private searchRepository: Repository<Search>,
-  ) {
+  ) {}
+
+  async getAllSearches(): Promise<Search[]> {
+    return this.searchRepository.find();
   }
 
   async createSearch(data: Search): Promise<Search> {
