@@ -19,9 +19,7 @@ export class SearchService {
 
   async createSearch(data: Search): Promise<Search> {
     let animals = [];
-    console.log(data)
     for (let animal of data.animals) {
-      console.log(data)
       animals.push(await this.animalRepository.findOne(animal))
     }
     data.animals = animals;
