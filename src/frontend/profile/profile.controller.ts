@@ -1,21 +1,22 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, HttpService, Param, Render } from '@nestjs/common';
+import { BeConnectionService } from '../../services/beConnectionService';
 
-@Controller('profile')
+@Controller('userprofile')
 export class ProfileController {
 
   @Get(':uid')
   @Render('userprofile')
-  index() {
-    // TODO fetch user data
-    const dummyJson = {
-      id: 2,
-      email: 'max@mustermann.de',
-      name: 'max',
-      lastname: 'mustermann',
-      phone: 124112311,
-      image: 'assets/img/alexander-else-foto.jpg',
-      // /animal/user/uid
-    };
-    return {};
+  async index(@Param() params) {
+    const ser = new BeConnectionService(new HttpService());
+
+    console.log(params.uid);
+
+    const user = await ser.getUserData(params.uid);
+    const userImage = await ser.getUserPicture(params.uid);
+    const animals = await ser.getAnimalsForUser(params.uid);
+
+    console.log(user);
+
+    return { user: user, userImage: userImage, animals: animals };
   }
 }

@@ -2,31 +2,32 @@
 
 {{setVar "imgSrc" "assets/img/alexander-else-foto.jpg"}}
 {{setVar "textHeadline" "Über mich"}}
-{{setVar "userName" "Alexander Else"}}
 {{> topInclude }}
 <div class="container">
-    <h1 id="user-headline">{{userName}}</h1>
+    <h1 id="user-headline">{{user.name}} {{user.lastName}}</h1>
 </div>
 <div class="container">
     <div class="row">
         <div id="userProfileImageWrapper" class="col l4 s12">
-            <img src="{{imgSrc}}" alt="Nutzer Profilbild" id="user-profile-img" class="col l4 s12">
+            <img src="{{userImage}}" alt="Nutzer Profilbild" id="user-profile-img" class="col l4 s12">
         </div>
         <div class="col l8 s12">
             <h3>{{textHeadline}}</h3>
-            <p class="flow-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
-                ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            <p class="flow-text">{{user.description}}</p>
         </div>
     </div>
     <div class="row">
         <div class="col l6 s12">
-            <p class="flow-text">Name:</p>
-            <p class="flow-text">Nachname:</p>
-            <p class="flow-text">Alter:</p>
+            <p class="flow-text">Name: {{user.name}}</p>
+            <p class="flow-text">Nachname: {{user.lastName}}</p>
+            <p class="flow-text" id="profileAge">Alter: </p>
+            <script>
+                let currDate = new Date();
+                let birthDay = new Date("{{user.birthDate}}");
+                let ageDate = Math.abs(currDate.getTime() - birthDay.getTime());
+                let age = Math.round(ageDate / (1000 * 60 * 60 * 24 * 365));
+                document.getElementById('profileAge').innerHTML = 'Alter: ' + age;
+            </script>
             <p class="flow-text">Erfahrung:</p>
             <div id="expierence-wrapper">
                 {{#each expierence}}
@@ -43,23 +44,23 @@
     <div class="animals-list">
         <div class="row">
             {{#each animals}}
-            <div class=" col l3 animal-card card horizontal">
-                <div class="card-image">
-                    <img src="{{this.animalPicture}}" alt="Tier Bild">
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <p class="flow-text">Name: {{this.animalname}}</p>
-                        <p class="flow-text">Größe: {{this.size}}</p>
-                        <p class="flow-text">gewicht: {{this.weight}}</p>
+                <div class=" col l3 animal-card card horizontal">
+                    <div class="card-image">
+                        <img src="{{this.animalPicture}}" alt="Tier Bild">
                     </div>
-                    <div class="card-action">
-                        <!--                            TODO set link-->
-                        <a href="#">Bearbeiten</a>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <p class="flow-text">Name: {{this.animalname}}</p>
+                            <p class="flow-text">Größe: {{this.size}}</p>
+                            <p class="flow-text">gewicht: {{this.weight}}</p>
+                        </div>
+                        <div class="card-action">
+                            <!--                            TODO set link-->
+                            <a href="#">Bearbeiten</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {{/each}}</div>
+            {{/each}}</div>
     </div>
 </div>
 {{> bottomInclude }}
