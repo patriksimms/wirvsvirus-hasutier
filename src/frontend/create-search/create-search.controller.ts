@@ -9,39 +9,45 @@ export class CreateSearchController {
   async index() {
     const ser = new BeConnectionService(new HttpService());
     const services = await ser.getAllServices();
-    return { 'services': services };
+
+    const animals = await ser.getAnimalsForUser('c7b8df97-0592-41e2-9ef0-b60317dca89c');
+
+    return { services: services, animals: animals };
   }
 
-  @Post("/submit")
-  async submit(@Body() body){
+  @Post('/submit')
+  async submit(@Body() body) {
     const ser = new BeConnectionService(new HttpService());
 
-    console.log(JSON.stringify(body));
-
     const serviceList = [];
+    const animalsList = [];
 
     for (const elem in body) {
-      if (elem.startsWith('offerService')) {
-        serviceList.push(elem.substring(12, elem.length));
+      if (elem.startsWith('searchService')) {
+        serviceList.push({ name: elem.substring(13, elem.length) });
+      } else if(elem.startsWith('searchAnimal')){
+        animalsList.push({ name: elem.substring(12, elem.length) });
       }
     }
 
     console.log('ServiceList: ' + serviceList);
 
-    //TODO add relevant Data when API is ready
-    const offer = {
-      'serviceList': serviceList,
+    const search = {
+      'serviceTypes': serviceList,
+      'animals': animalsList,
       'description': body.searchDescription,
-      'startDate': body.searchDate,
-      //PLZ
+      'plz': body.searchPLZ,
+      'from': body.searchDate,
+      'owner': 'c7b8df97-0592-41e2-9ef0-b60317dca89c'
     };
 
     let res;
 
     try {
-      res = await ser.addSearch(offer);
+      res = await ser.addSearch(search);
+      console.log(res)
     } catch (e) {
-      console.log('Error at Adding Offer');
+      console.log('Error at Adding Search');
       //TODO ERRORHANDLING
     }
   }

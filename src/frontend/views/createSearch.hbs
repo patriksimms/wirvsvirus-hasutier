@@ -1,7 +1,7 @@
 {{ setVar "title" "Suche anlegen" }}
 {{> topInclude }}
 <div class="container">
-    <h2>Suche anlegen</h2>
+    <h2>Hilfe suchen</h2>
     <hr id="siteHeaderUnderline">
 </div>
 <div class="container">
@@ -31,14 +31,23 @@
                     {{#each services}}
                         <div class="row">
                             <label class="input-field">
-                                <input type="checkbox" name="offerService{{this.name}}" id="offerService{{this.name}}">
+                                <input type="checkbox" name="searchService{{this.name}}" id="searchService{{this
+                                .name}}">
                                 <span>{{this.name}}</span>
                             </label>
                         </div>
                     {{/each}}
                 </div>
-                <div class="col l6 input-field">
+                <div class="col l6">
                     <h5>Tier(e) auswählen</h5>
+                    {{#each animals}}
+                        <div class="row">
+                            <label class="input-field">
+                                <input type="checkbox" name="searchAnimal{{this.id}}" id="searchAnimal{{this.name}}">
+                                <span>{{this.name}}</span>
+                            </label>
+                        </div>
+                    {{/each}}
                     <div>
                         <a href="/create-animal">Tier(e) hinzufügen</a>
                     </div>
@@ -71,8 +80,8 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-    let elems = document.querySelectorAll('.datepicker');
-    let options;
-    let instances = M.Datepicker.init(elems, options);
-});</script>
+        let elems = document.querySelectorAll('.datepicker');
+        let options;
+        let instances = M.Datepicker.init(elems, options);
+    });</script>
 {{> bottomInclude }}
