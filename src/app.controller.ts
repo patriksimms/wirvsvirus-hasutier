@@ -8,5 +8,6 @@ export class AppController {
   root() {
     return {};
   }
+
 }
 

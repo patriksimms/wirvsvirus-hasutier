@@ -1,3 +1,22 @@
 #parallax-homepage {
     height: 70vh;
 }
+
+#homepage-text-wrapper {
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 8px 8px 8px #333333;
+    padding: 1.5em;
+}
+
+#homepage-text-wrapper > h1 {
+    text-align: center;
+    font-size: 8vh;
+}
+
+.homepage-block {
+    margin-bottom: 6em;
+}
