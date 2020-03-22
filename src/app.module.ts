@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { HttpModule, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AnimalController } from './backend/animal/animal.controller';
 import { AnimalService } from './backend/animal/animal.service';
@@ -23,6 +23,7 @@ import { AnimalType } from './backend/animal/animalType.entity';
 import { ServiceType } from './backend/services/services.entity';
 import { ServiceController } from './backend/services/serviceController';
 import { ServiceService } from './backend/services/serviceService';
+import { CreateAnimalController } from './frontend/create-animal/create-animal.controller';
 
 
 @Module({
@@ -31,11 +32,12 @@ import { ServiceService } from './backend/services/serviceService';
     AuthModule,
     TypeOrmModule.forFeature([User, Animal, AnimalType, ServiceType]),
     UserModule,
+    HttpModule,
     NoteModule,
     AnimalModule
   ],
 
-  controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, SearchController, CreateOfferController, CreateSearchController, ServiceController],
+  controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, SearchController, CreateOfferController, CreateSearchController, ServiceController, CreateAnimalController],
   providers: [AppService, AnimalService, UserService, ServiceService],
   exports: [TypeOrmModule],
 })

@@ -24,45 +24,17 @@
                 </div>
             </div>
         </div>
-        <form class="col l12">
+        <form class="col l12" method="post" action="/create-search/submit">
             <div class="col l6">
                 <h5>Service(s)</h5>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" id="offerServiceWalk">
-                        <span>Gassi gehen</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" id="offerServiceFood">
-                        <span>Futter kaufen</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" id="offerServiceShortInternal">
-                        <span>Kurzfristige Betreuung (intern)</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" id="offerServiceShortExternal">
-                        <span>Kurzfristige Betreuung (extern)</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" id="offerServiceLongInternal">
-                        <span>Langfristige Betreuung (intern)</span>
-                    </label>
-                </div>
-                <div class="row">
-                    <label>
-                        <input type="checkbox" id="offerServiceLongExternal">
-                        <span>Langfristige Betreuung (extern)</span>
-                    </label>
-                </div>
+                {{#each services}}
+                    <div class="row">
+                        <label>
+                            <input type="checkbox" name="offerService{{this.name}}" id="offerService{{this.name}}">
+                            <span>{{this.name}}</span>
+                        </label>
+                    </div>
+                {{/each}}
             </div>
             <div class="col l6">
                 <h5>Tier(e) auswählen</h5>
@@ -73,8 +45,8 @@
 
             <div class="row">
                 <div class="col l12 input-field">
-                    <label for="offerDescription">Beschreibung der Suche</label>
-                    <textarea id="offerDescription" class="materialize-textarea" maxlength="600"></textarea>
+                    <label for="searchDescription">Beschreibung der Suche</label>
+                    <textarea id="searchDescription" class="materialize-textarea" maxlength="600"></textarea>
                     <span class="helper-text">Maximal 600 Zeichen</span>
                 </div>
             </div>
