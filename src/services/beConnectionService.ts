@@ -1,6 +1,5 @@
 import { HttpService, Injectable } from '@nestjs/common';
 import { map } from 'rxjs/operators';
-import { response } from 'express';
 
 @Injectable()
 export class BeConnectionService {
@@ -14,14 +13,22 @@ export class BeConnectionService {
     return this.httpService.get('http://localhost:3000/animal/types').pipe(map(response => response.data)).toPromise();
   }
 
-  /*async getAllServices(){
+  async getAllServices(){
     return this.httpService.get('http://localhost:3000/service/types').pipe(map(response => response.data)).toPromise();
-  }*/
+  }
 
   async registerUser(data : any){
     const response = await this.httpService.post('http://localhost:3000/register', data).pipe(map(response => response.status)).toPromise();
 
     return response;
+  }
+
+  async addOffer(data : any){
+    //TODO AFTER API HAS ENDPOINT
+  }
+
+  async addSearch(data : any){
+    //TODO AFTER API HAS ENDPOINT
   }
 
 }

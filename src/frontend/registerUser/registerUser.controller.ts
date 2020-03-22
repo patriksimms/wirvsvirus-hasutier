@@ -14,20 +14,16 @@ export class RegisterUserController {
   async submit(@Body() body) {
     const ser = new BeConnectionService(new HttpService());
 
-    console.log("BODY: " + JSON.stringify(body));
-
     const user = {
       "email": body.emailRegister,
       "name": body.firstNameRegister,
       "lastName": body.lastNameRegister,
       "phone": body.phoneNumberRegister,
       "isVerified": false,
-      "description": "",
-      "birthDate": "01.01.2020",
+      "description": body.descriptionRegister,
+      "birthDate": body.birthDateRegister,
       "hashedPassword": body.passwordRegister
     };
-
-    console.log("User: " + JSON.stringify(user));
 
     let res;
 
