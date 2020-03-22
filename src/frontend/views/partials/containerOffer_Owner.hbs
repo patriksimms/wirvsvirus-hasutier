@@ -16,10 +16,29 @@
             </div>
 
             <div class="card-action center-align box">
-                <a class="btn-flat" href="#popup1">Anfragen</a>
+                <a class="btn-flat modal-trigger" href="#terms">Anfragen</a>
             </div>
 
+            <div class="modal" id="terms">
+                <div class="modal-content center-align">
+                    <h5>Zustimmen </h5>
+                    <ul>
+                        <li>Ihre persönlichen Daten werden übersand</li>
+                        <li>Sie stellen eine Anfrage das Angebot anzunehmen</li>
+                        <li>Sie stellen eine Anfrage zur Kontaktaufnahme</li>
+                    </ul>
+                </div>
+                <div class="modal-footer center-align">
+                    <a href="#" class="modal-close btn orange row l6 xl6 s6">Zustimmen und Schliessen</a>
+                    <a href="#" class="modal-close btn orange row l6 xl6 s6">Abbrechen</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <script type="text/javascript" src="assets/js/search.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.modal').modal();
+    }
+</script>
