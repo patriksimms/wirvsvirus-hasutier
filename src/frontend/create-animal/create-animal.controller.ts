@@ -23,7 +23,8 @@ export class CreateAnimalController {
       "name": body.animalName,
       "age": body.animalAge,
       "weight": body.animalWeight,
-      "height": body.animalHeight
+      "height": body.animalHeight,
+      "owner": "aa899734-67a7-4772-a1c8-f51bb4655bfd"
     };
 
     let res;

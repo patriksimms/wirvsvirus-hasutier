@@ -9,36 +9,73 @@ export class BeConnectionService {
 
   }
 
-  async getAllAnimals(){
+  async getAllAnimals() {
     return this.httpService.get('http://localhost:3000/animal/types').pipe(map(response => response.data)).toPromise();
   }
 
-  async getAllServices(){
+  async getAllServices() {
     return this.httpService.get('http://localhost:3000/service/types').pipe(map(response => response.data)).toPromise();
   }
 
-  async registerUser(data : any){
-    const response = await this.httpService.post('http://localhost:3000/register', data).pipe(map(response => response.data)).toPromise();
+  async registerUser(data: any) {
+    const response = await this.httpService.post('http://localhost:3000/auth/register', data).pipe(map(response => response.data)).toPromise();
+
+    console.log(response);
+
+    return response;
+  }
+
+  async addUserPicture(id: any, data: any) {
+    const response = await this.httpService.post('http://localhost:3000/user/' + id + '/upload', data).pipe(map(response => response.data)).toPromise();
+
+    console.log(response);
+
+    return response;
+  }
+
+  async getUserPicture(id : any){
+    const response = await this.httpService.get('http://localhost:3000/user/' + id + '/image').pipe(map(response => response.data)).toPromise();
+
+    console.log(response);
 
     return response;
   }
 
   async loginUser(data: any) {
-    const response = await this.httpService.post('http://localhost:3000/auth/login', data).toPromise();
+    const response = await this.httpService.post('http://localhost:3000/auth/login', data).pipe(map(response => response.data)).toPromise();
 
-    return response.data;
+    return response;
   }
 
-  async addOffer(data : any){
-    //TODO AFTER API HAS ENDPOINT
+  async addOffer(data: any) {
+    const response = await this.httpService.post('http://localhost:3000/offer', data).pipe(map(response => response.data)).toPromise();
+
+    return response;
   }
 
-  async addSearch(data : any){
-    //TODO AFTER API HAS ENDPOINT
+  async addSearch(data: any) {
+    const response = await this.httpService.post('http://localhost:3000/search', data).pipe(map(response => response.data)).toPromise();
+
+    return response;
   }
 
-  async addAnimal(data : any){
-    //TODO AFTER API HAS ENDPOINT
+  async addAnimal(data: any) {
+    const response = await this.httpService.post('http://localhost:3000/animal', data).pipe(map(response => response.data)).toPromise();
+
+    return response;
   }
 
+  async getUserData(id: any) {
+    const response = await this.httpService.get('http://localhost:3000/profile/' + id).pipe(map(response => response.data)).toPromise();
+
+    return response;
+  }
+
+  async getAnimalsForUser(id: any) {
+    const response = await this.httpService.get('http://localhost:3000/animal/user/' + id).pipe(map(response => response.data)).toPromise();
+
+    console.log(response);
+
+    return response;
+  }
 }
