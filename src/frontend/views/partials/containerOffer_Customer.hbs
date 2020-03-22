@@ -4,14 +4,15 @@
             <img src={{this.animalPicture}} alt="Tier Bild">
         </div>
         <div class="card-stacked" id="info">
-            <div class="card-content">
-                <p class="flow-text">Name: {{offers.}}</p>
-                <p class="flow-text">Größe: {{offers.size}}</p>
-                <p class="flow-text">Gewicht: {{offers.weight}}</p>
+            <div class="row s12 l12 xl12">
+            {{#each offers.animals}}
+                    <label for="name">Name:</label><br>{{this.name}}
+                    <label for="firstname">Gewicht(in kg):</label><br>{{this.weight}}
+                    <label for="age">Größe(in cm):</label><br>{{this.size}}
+            {{/each}}
             </div>
             <div class="card-content">
-                <p>Beschreibung.BeschreibungBeschreibung
-                    BeschreibungBeschreibungBeschreibungBeschreibung</p>
+                <p>{{offers.description}}</p>
             </div>
             <div class="card-action center-align box">
                 <a class="btn-flat modal-trigger" href="#terms">Anfragen</a>
@@ -38,6 +39,6 @@
 <script>
     $(document).ready(function() {
         $('.modal').modal();
-    }
+    });
 </script>
 

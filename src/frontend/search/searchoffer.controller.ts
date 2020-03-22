@@ -10,7 +10,7 @@ async index() {
     const ser = new BeConnectionService(new HttpService());
     const animals = await ser.getAllAnimals();
     const services = await ser.getAllServices();
-    let search = await ser.getAllSearches();
+    const search = await ser.getAllSearches();
 /*
     const animalArr = [];
     let temparr;
@@ -24,14 +24,12 @@ async index() {
         animalArr.push();
       }
     } */
-    if (search == undefined) {
-      search = [];
-    }
 
 
 
 
-    return { 'animals': animals, 'services' : services, 'offers':search };
+
+    return { 'animals': animals, 'services' : services, 'offers' : search };
   }
 
 /*
