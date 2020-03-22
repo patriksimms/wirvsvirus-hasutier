@@ -9,17 +9,22 @@ export class AnimalService {
   constructor(@InjectRepository(Animal)
               private animalRepository: Repository<Animal>,
               @InjectRepository(AnimalType)
-              private animalTypeRepository: Repository<AnimalType>) {}
+              private animalTypeRepository: Repository<AnimalType>) {
+  }
 
   async getAnimal(id: string): Promise<Animal> {
     return this.animalRepository.findOne(id);
   }
 
   async getAllAnimalsForUser(userId: string): Promise<Animal[]> {
-    return this.animalRepository.find({where: {owner: userId}})
+    return this.animalRepository.find({ where: { owner: userId } });
   }
 
   async getAllAnimalTypes(): Promise<AnimalType[]> {
     return this.animalTypeRepository.find();
+  }
+
+  async createAnimal(data: Animal): Promise<Animal> {
+    return this.animalRepository.save(data);
   }
 }

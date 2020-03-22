@@ -1,7 +1,8 @@
-import { BadRequestException, Controller, Get, Param } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { AnimalService } from './animal.service';
 import { Animal } from './animal.entity';
 import { AnimalType } from './animalType.entity';
+import { User } from '../user/user.entity';
 
 @Controller('animal')
 export class AnimalController {
@@ -30,5 +31,10 @@ export class AnimalController {
       throw new BadRequestException('no animals found for user id')
     }
     return animals;
+  }
+
+  @Post()
+  async createAnimal(@Body() params: Animal): Promise<Animal> {
+    return await this.animalService.createAnimal(params);
   }
 }
