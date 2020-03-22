@@ -27,4 +27,10 @@ export class AnimalService {
   async createAnimal(data: Animal): Promise<Animal> {
     return this.animalRepository.save(data);
   }
+
+  async addImageToAnimal(id: string, imageName: string) {
+    await this.animalRepository.update({ id: id }, { imageName: imageName });
+
+
+  }
 }

@@ -12,7 +12,22 @@ export class Animal {
   @JoinColumn()
   type: AnimalType;
 
-  @Column({type: 'varchar'})
+  @Column({ type: 'varchar' })
   @ManyToOne(type => User, user => user.animals)
   owner: User;
+
+  @Column()
+  age: number;
+
+  @Column()
+  size: number;
+
+  @Column()
+  weight: number;
+
+  @Column()
+  description: string;
+
+  @Column()
+  imageName: string;
 }
