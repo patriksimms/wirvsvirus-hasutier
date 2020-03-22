@@ -23,6 +23,9 @@ export class Animal {
   size: number;
 
   @Column()
+  name: string;
+
+  @Column()
   weight: number;
 
   @Column()
