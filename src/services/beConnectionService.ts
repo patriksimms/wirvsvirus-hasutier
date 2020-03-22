@@ -23,6 +23,12 @@ export class BeConnectionService {
     return response;
   }
 
+  async loginUser(data: any) {
+    const response = await this.httpService.post('http://localhost:3000/auth/login', data).toPromise();
+
+    return response.data;
+  }
+
   async addOffer(data : any){
     //TODO AFTER API HAS ENDPOINT
   }
