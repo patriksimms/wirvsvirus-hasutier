@@ -87,6 +87,12 @@ export class BeConnectionService {
     return response;
   }
 
+  async getAnimal(data: any) {
+    const response = await this.httpService.post('http://localhost:3000/animal', data).pipe(map(response => response.data)).toPromise();
+
+    return response;
+  }
+
   async getUserData(id: any) {
     const response = await this.httpService.get('http://localhost:3000/profile/' + id).pipe(map(response => response.data)).toPromise();
 
@@ -100,4 +106,6 @@ export class BeConnectionService {
 
     return response;
   }
+
+
 }

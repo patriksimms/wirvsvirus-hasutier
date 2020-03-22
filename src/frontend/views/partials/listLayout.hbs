@@ -4,12 +4,12 @@
     </div>
     <div class="list">
         {{#if bool}}
-            {{#each page.containerTab}}
-                <div> {{>containerOffer_Owner}}</div>
+            {{#each helperarr}}
+                <div> {{>containerOffer_Owner helpers=this}}</div>
             {{/each}}
         {{else}}
-            {{#each page.containerTab}}
-                <div> {{>containerOffer_Customer}}</div>
+            {{#each offerarr}}
+                <div> {{>containerOffer_Customer offers=this}}</div>
             {{/each}}
         {{/if}}
     </div>
