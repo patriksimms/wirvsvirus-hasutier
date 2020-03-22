@@ -26,7 +26,7 @@ export class BeConnectionService {
   }
 
   async addUserPicture(id: any, data: any) {
-    const response = await this.httpService.post('http://localhost:3000/user/' + id + '/upload', data).pipe(map(response => response.data)).toPromise();
+    const response = await this.httpService.post('http://localhost:3000/profile/' + id + '/upload', data).pipe(map(response => response.data)).toPromise();
 
     console.log(response);
 
@@ -34,7 +34,7 @@ export class BeConnectionService {
   }
 
   async getUserPicture(id : any){
-    const response = await this.httpService.get('http://localhost:3000/user/' + id + '/image').pipe(map(response => response.data)).toPromise();
+    const response = await this.httpService.get('http://localhost:3000/profile/' + id + '/image').pipe(map(response => response.data)).toPromise();
 
     console.log(response);
 
@@ -66,6 +66,7 @@ export class BeConnectionService {
   }
 
   async getUserData(id: any) {
+    console.log("trying to find with " + id);
     const response = await this.httpService.get('http://localhost:3000/profile/' + id).pipe(map(response => response.data)).toPromise();
 
     return response;

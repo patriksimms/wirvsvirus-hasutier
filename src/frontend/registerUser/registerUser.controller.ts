@@ -30,7 +30,7 @@ export class RegisterUserController {
 
     try {
       res = await ser.registerUser(user);
-      res2 = await ser.addUserPicture(res.id, body.fileRegister);
+      //res2 = await ser.addUserPicture(res.id, { image: body.fileRegister });
     } catch (e) {
       console.log('Error at User Register');
       console.log(e);

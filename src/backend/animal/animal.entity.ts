@@ -28,6 +28,6 @@ export class Animal {
   @Column()
   description: string;
 
-  @Column()
+  @Column({ nullable: true })
   imageName: string;
 }

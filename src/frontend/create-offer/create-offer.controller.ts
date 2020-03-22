@@ -36,16 +36,18 @@ export class CreateOfferController {
 
     //TODO add relevant Data when API is ready
     const offer = {
-      'animalList': animalList,
-      'serviceList': serviceList,
-      'description': body.offerDescription
-      //PLZ für Angebot
+      'animalTypes': animalList,
+      'serviceTypes': serviceList,
+      'description': body.offerDescription,
+      'plz': body.offerPLZ,
+      'owner': "c7b8df97-0592-41e2-9ef0-b60317dca89c"
     };
 
     let res;
 
     try {
       res = await ser.addOffer(offer);
+      console.log(res)
     } catch (e) {
       console.log('Error at Adding Offer');
       //TODO ERRORHANDLING
