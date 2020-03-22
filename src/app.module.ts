@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AnimalController } from './backend/animal/animalController';
-import { AnimalService } from './backend/animal/animalService';
-import { UserController } from './backend/user/userController';
-import { UserService } from './backend/user/userService';
-import { RegisterController } from './backend/user/userController';
+import { AnimalController } from './backend/animal/animal.controller';
+import { AnimalService } from './backend/animal/animal.service';
+import { UserController } from './backend/user/user.controller';
+import { UserService } from './backend/user/user.service';
+import { RegisterController } from './backend/user/user.controller';
 import { AppService } from './app.service';
 import { RegisterUserController } from './frontend/registerUser/registerUser.controller';
 import { LoginController } from './frontend/login/login.controller';
@@ -32,8 +32,7 @@ import { ServiceService } from './backend/services/serviceService';
     TypeOrmModule.forFeature([User, Animal, AnimalType, ServiceType]),
     UserModule,
     NoteModule,
-    AnimalModule,
-
+    AnimalModule
   ],
 
   controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, SearchController, CreateOfferController, CreateSearchController, ServiceController],
