@@ -24,9 +24,9 @@ export class CreateSearchController {
 
     for (const elem in body) {
       if (elem.startsWith('searchService')) {
-        serviceList.push({ name: elem.substring(13, elem.length) });
+        serviceList.push(elem.substring(13, elem.length));
       } else if(elem.startsWith('searchAnimal')){
-        animalsList.push({ name: elem.substring(12, elem.length) });
+        animalsList.push(elem.substring(12, elem.length));
       }
     }
 

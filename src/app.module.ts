@@ -38,7 +38,7 @@ import { SearchModule } from './backend/search/search.module';
     HttpModule,
     AnimalModule,
     MulterModule.register({
-      dest: './uploads',
+      dest: './public/uploads/',
     }),
     OfferModule,
     SearchModule,

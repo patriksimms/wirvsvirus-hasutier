@@ -1,6 +1,7 @@
-import { Body, Controller, Get, HttpService, Post, Render } from '@nestjs/common';
+import { Body, Controller, Get, HttpService, Post, Render, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { BeConnectionService } from '../../services/beConnectionService';
 import { elementAt } from 'rxjs/operators';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('create-animal')
 export class CreateAnimalController {
@@ -14,7 +15,8 @@ export class CreateAnimalController {
   }
 
   @Post("/submit")
-  async submit(@Body() body){
+  @UseInterceptors(FileInterceptor('animalFile'))
+  async submit(@Body() body, @UploadedFile() file){
     const ser = new BeConnectionService(new HttpService());
 
     const animal = {
@@ -28,9 +30,12 @@ export class CreateAnimalController {
     };
 
     let res;
+    let res2;
 
     try {
+      console.log(animal);
       res = await ser.addAnimal(animal);
+      res2 = await ser.addAnimalPicture(res.id, file);
       console.log(res);
     } catch (e) {
       console.log("Error at Adding Animal")

@@ -14,14 +14,17 @@ export class ProfileController {
 
     const user = await ser.getUserData(params.uid);
     let animals;
+    let image;
     try {
       animals = await ser.getAnimalsForUser(params.uid);
+      image = await ser.getUserPicture(params.uid);
+      console.log(image);
     } catch (e) {
     }
 
     console.log(user);
 
-    return { user: user, animals: animals };
+    return { user: user, animals: animals, image: image };
   }
 
   @UseGuards(AuthenticatedGuard)

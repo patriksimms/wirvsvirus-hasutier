@@ -8,7 +8,7 @@ export class Animal {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @OneToOne(type => AnimalType)
+  @ManyToOne(type => AnimalType)
   @JoinColumn()
   type: AnimalType;
 

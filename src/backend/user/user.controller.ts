@@ -6,6 +6,7 @@ import {
   Body,
   Param,
   Res,
+  Request,
   BadRequestException,
   UseInterceptors, UploadedFile,
 } from '@nestjs/common';
@@ -39,21 +40,22 @@ export class UserController {
   }
 
   @Post(':userid/upload')
-  @UseInterceptors(FileInterceptor('image'))
-  uploadFile(@Param('userid') userId, @UploadedFile()  file) {
-    this.userService.addImageToUser(userId, file.filename);
+  uploadFile(@Param('userid') userId, @Body() body) {
+    console.log(body);
+
+    this.userService.addImageToUser(userId, body.filename);
     console.log(userId);
-    console.log('file: ' + file.filename);
+    console.log('file: ' + body.filename);
   }
 
   @Get(':userId/image')
-  async getUserImage(@Param('userId') userId, @Res() res) {
+  async getUserImage(@Param('userId') userId) {
     const user = await this.userService.getUser(userId);
     if (user.imageName == undefined) {
       throw new BadRequestException('user has no image');
     }
     console.log(user.id);
-    res.sendFile(user.imageName, { root: 'uploads' });
+    return user.imageName;
   }
 }
 

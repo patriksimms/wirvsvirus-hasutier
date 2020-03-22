@@ -34,6 +34,7 @@ export class BeConnectionService {
   }
 
   async addUserPicture(id: any, data: any) {
+    console.log(data);
     const response = await this.httpService.post('http://localhost:3000/profile/' + id + '/upload', data).pipe(map(response => response.data)).toPromise();
 
     console.log(response);
@@ -44,7 +45,20 @@ export class BeConnectionService {
   async getUserPicture(id : any){
     const response = await this.httpService.get('http://localhost:3000/profile/' + id + '/image').pipe(map(response => response.data)).toPromise();
 
+    return response;
+  }
+
+  async addAnimalPicture(id: any, data: any) {
+    console.log(data);
+    const response = await this.httpService.post('http://localhost:3000/animal/' + id + '/upload', data).pipe(map(response => response.data)).toPromise();
+
     console.log(response);
+
+    return response;
+  }
+
+  async getAnimalPicture(id : any){
+    const response = await this.httpService.get('http://localhost:3000/animal/' + id + '/image').pipe(map(response => response.data)).toPromise();
 
     return response;
   }

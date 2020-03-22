@@ -52,20 +52,20 @@ export class AnimalController {
 
   @Post(':animalId/upload')
   @UseInterceptors(FileInterceptor('image'))
-  uploadFile(@Param('animalId') animalId, @UploadedFile()  file) {
-    this.animalService.addImageToAnimal(animalId, file.filename);
+  uploadFile(@Param('animalId') animalId, @Body() body) {
+    this.animalService.addImageToAnimal(animalId, body.filename);
     console.log(animalId);
-    console.log('file: ' + file.filename);
+    console.log('file: ' + body.filename);
   }
 
   @Get(':animalId/image')
-  async getUserImage(@Param('animalId') animalId, @Res() res) {
-    let animal = await this.animalService.getAnimal(animalId);
+  async getUserImage(@Param('animalId') animalId) {
+    const animal = await this.animalService.getAnimal(animalId);
     if (animal.imageName == undefined) {
       throw new BadRequestException('animal has no image');
     }
 
-    res.sendFile(animal.imageName, { root: 'uploads' });
+    return animal.imageName;
   }
 
 
