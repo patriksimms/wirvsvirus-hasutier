@@ -1,20 +1,31 @@
 <div class="col s12 m12">
-    <div class="card horizontal">
+    <div class="card horizontal card medium"><!--TODO cardsmall-->
         <div class="card-image" id="image-Container">
-            <img src={{this.Picture}} alt="Personen Bild">
+            <img src="{{helpers.imageName}}" alt="Personen Bild">
         </div>
         <div class="card-stacked" id="info">
             <div class="card-content">
-                <p class="flow-text">Name: {{this.name}}</p>
-                <p class="flow-text">VorName: {{this.lastname}}</p>
-                <p class="flow-text">Größe: {{this.age}}</p>
-            </div>
-            <div class="card-content">
-                <div></div>
-                <p>Beschreibung.BeschreibungBeschreibung
-                    BeschreibungBeschreibungBeschreibungBeschreibung</p>
-            </div>
+            <ul>
+                 <li><label for="name">Name:</label><br>{{helpers.owner.lastName}}</li>
+                 <li><label for="firstname">VorName:</label><br>{{helpers.owner.name}}</li>
+                 <li><label for="age">Alter:</label><br>{{helpers.owner.birthDate}}</li>
+         <!--   <p class="flow-text">Name: {{helpers.owner.lastName}}</p>
+                <p class="flow-text">VorName: {{helpers.owner.name}}</p>
+                <p class="flow-text">Geburtstag: {{helpers.owner.birthDate}}</p>-->
+                <br>
+             {{#if helpers.animalTypes }}
+                                    <div class="row">
+                                    <label>Erfahrung:</label><br>
+                                    {{#each helpers.animalTypes }}
+                                        <div class="chip">
+                                            this
+                                         </div>
+                                    {{/each}}
+                                    </div>
+                                 {{/if}}
+                <p>{{helpers.description}}</p>
 
+            </div>
             <div class="card-action center-align box">
                 <a class="btn-flat modal-trigger" href="#terms">Anfragen</a>
             </div>
@@ -40,5 +51,5 @@
 <script>
     $(document).ready(function() {
         $('.modal').modal();
-    }
+    })
 </script>

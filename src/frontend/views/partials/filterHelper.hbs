@@ -1,11 +1,20 @@
 <div class="filter-group">
-    <form class="filterForm">
+    <form class="filterForm" method="get" action="/searchHelper" >
         <div class="column filterGroup">
             <!-- Service -->
             <div class="row">
-                <label for="service">Service</label>
+                <label  for="service">Service</label>
                 <select id="service" name="service">
                     {{#each services}}
+                        <option value="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="row">
+                <!--//tierart -->
+                <label for="species">Art</label>
+                <select class="filterDropDowns" id="species" name="species">
+                    {{#each animals}}
                         <option value="{{this.name}}">{{this.name}}</option>
                     {{/each}}
                 </select>
@@ -22,7 +31,7 @@
                        pattern="^(([1-9]{1}[0-9]{4})|([0-9]{1}[1-9]{1}[0-9]{3}))$" onchange="handlePLZ(this);">
             </div>
             <div class="row filterGroup">
-                <select class="sc-input col l12 xl12 s12" data-test="zipRadius">
+                <select class="sc-input col l12 xl12 s12" data-test="zipRadius" name="distance">
                     <option selected="" value="null">Umkreis</option>
                     <option value="1">1 km</option>
                     <option value="2">2 km</option>
@@ -49,7 +58,7 @@
             <div class="row">
                 <div class="">
                     <label for="age">Geschlecht:</label><br>
-                    <select id="gender">
+                    <select id="gender" name="gender">
                         <option value="male">Männlich</option>
                         <option value="female">Weiblich</option>
                         <option value="divers">Divers</option>
