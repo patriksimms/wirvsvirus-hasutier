@@ -36,7 +36,8 @@
     "rxjs": "^6.5.4",
     "sqlite3": "^4.1.1",
     "typeorm": "^0.2.24",
-    "uuid": "^7.0.2"
+    "uuid": "^7.0.2",
+    "@google-cloud/storage": "^4.6.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
