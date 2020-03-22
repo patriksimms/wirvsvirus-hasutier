@@ -17,7 +17,6 @@ import { User } from './backend/user/user.entity';
 import { AuthModule } from './backend/auth/auth.module';
 import { Animal } from './backend/animal/animal.entity';
 import { UserModule } from './backend/user/user.module';
-import { NoteModule } from './backend/notes/note.module';
 import { AnimalModule } from './backend/animal/animal.module';
 import { AnimalType } from './backend/animal/animalType.entity';
 import { ServiceType } from './backend/services/services.entity';
@@ -25,6 +24,8 @@ import { ServiceController } from './backend/services/serviceController';
 import { ServiceService } from './backend/services/serviceService';
 import { CreateAnimalController } from './frontend/create-animal/create-animal.controller';
 import { MulterModule } from '@nestjs/platform-express';
+import { OfferModule } from './backend/offer/offer.module';
+import { SearchModule } from './backend/search/search.module';
 
 
 @Module({
@@ -34,14 +35,13 @@ import { MulterModule } from '@nestjs/platform-express';
     TypeOrmModule.forFeature([User, Animal, AnimalType, ServiceType]),
     UserModule,
     HttpModule,
-    NoteModule,
     AnimalModule,
     MulterModule.register({
       dest: './uploads',
     }),
+    OfferModule,
+    SearchModule,
   ],
-
-  //mongodb+srv://mongo:<password>@cluster0-hiegd.gcp.mongodb.net/test?retryWrites=true&w=majority
 
   controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, SearchController, CreateOfferController, CreateSearchController, ServiceController, CreateAnimalController],
   providers: [AppService, AnimalService, UserService, ServiceService],

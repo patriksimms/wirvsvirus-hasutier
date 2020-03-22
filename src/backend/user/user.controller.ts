@@ -6,7 +6,6 @@ import {
   Body,
   Param,
   Res,
-  HttpStatus,
   BadRequestException,
   UseInterceptors, UploadedFile,
 } from '@nestjs/common';
@@ -50,6 +49,9 @@ export class UserController {
   @Get(':userId/image')
   async getUserImage(@Param('userId') userId, @Res() res) {
     let user = await this.userService.getUser(userId);
+    if (user.imageName == undefined) {
+      throw new BadRequestException('user has no image');
+    }
     console.log(user.id);
     res.sendFile(user.imageName, { root: 'uploads' });
   }
