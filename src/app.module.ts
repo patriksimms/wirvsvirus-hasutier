@@ -8,7 +8,8 @@ import { RegisterController } from './backend/user/user.controller';
 import { AppService } from './app.service';
 import { RegisterUserController } from './frontend/registerUser/registerUser.controller';
 import { LoginController } from './frontend/login/login.controller';
-import { SearchController } from './frontend/search/search.controller';
+import { SearchofferController } from './frontend/search/searchoffer.controller';
+import { SearchhelperController } from './frontend/searchhelper/searchhelper.controller';
 import { ProfileController } from './frontend/profile/profile.controller';
 import { CreateOfferController } from './frontend/create-offer/create-offer.controller';
 import { CreateSearchController } from './frontend/create-search/create-search.controller';
@@ -43,7 +44,7 @@ import { SearchModule } from './backend/search/search.module';
     SearchModule,
   ],
 
-  controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, SearchController, CreateOfferController, CreateSearchController, ServiceController, CreateAnimalController],
+  controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, SearchofferController, SearchhelperController, CreateOfferController, CreateSearchController, ServiceController, CreateAnimalController],
   providers: [AppService, AnimalService, UserService, ServiceService],
   exports: [TypeOrmModule],
 })
