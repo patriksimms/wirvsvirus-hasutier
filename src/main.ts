@@ -14,6 +14,7 @@ async function bootstrap() {
     options.data.root[varName] = varValue;
   });
 
+
   app.useStaticAssets(join(__dirname, '../', 'public'));
   app.setBaseViewsDir(join(__dirname, '../src/frontend', 'views'));
   app.setViewEngine('hbs');

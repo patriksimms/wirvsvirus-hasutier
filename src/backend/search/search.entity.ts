@@ -5,6 +5,9 @@ import { ServiceType } from '../services/services.entity';
 import { User } from '../user/user.entity';
 import { Animal } from '../animal/animal.entity';
 
+/**
+ * holt die inhalte einer anfrage eines tierbesitzers
+ */
 @Entity()
 export class Search {
 

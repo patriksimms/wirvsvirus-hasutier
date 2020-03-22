@@ -10,7 +10,12 @@ async index() {
     const ser = new BeConnectionService(new HttpService());
     const animals = await ser.getAllAnimals();
     const services = await ser.getAllServices();
-    return { 'animals': animals, 'services' : services };
+    const search = await ser.getAllSearches();
+
+
+
+
+    return { 'animals': animals, 'services' : services, 'offers':search };
   }
 
 /*

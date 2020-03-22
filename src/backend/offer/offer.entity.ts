@@ -4,6 +4,11 @@ import { ManyToMany } from 'typeorm';
 import { ServiceType } from '../services/services.entity';
 import { User } from '../user/user.entity';
 
+
+
+/**
+ * holt die angebote von personen die gassi gehen würden
+ */
 @Entity()
 export class Offer {
 
