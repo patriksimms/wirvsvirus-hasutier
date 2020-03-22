@@ -1,9 +1,9 @@
 {
   "type": "mysql",
-  "host": "35.198.105.207",
+  "host": "127.0.0.1",
   "port": 3306,
   "username": "root",
-  "password": "E8y5KKQ887%tKW",
+  "password": "root",
   "database": "wwv",
   "entities": [
     "dist/**/*.entity{.ts,.js}"

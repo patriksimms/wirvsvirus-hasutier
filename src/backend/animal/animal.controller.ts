@@ -9,9 +9,6 @@ export class AnimalController {
 
   @Get('types')
   async getAllAnimalTypes(): Promise<AnimalType[]> {
-
-    console.log("toll")
-
     return await this.animalService.getAllAnimalTypes();
   }
 

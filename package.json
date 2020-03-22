@@ -23,7 +23,6 @@
   "dependencies": {
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
-    "@nestjs/jwt": "^7.0.0",
     "@nestjs/mongoose": "^6.4.0",
     "@nestjs/passport": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
@@ -32,7 +31,6 @@
     "mongoose": "^5.9.5",
     "mysql": "^2.18.1",
     "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "pg": "^7.18.2",
     "reflect-metadata": "^0.1.13",
