@@ -1,5 +1,4 @@
-import { Column, Entity, JoinTable, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
-import { AnimalType } from '../animal/animalType.entity';
+import { Column, Entity, JoinColumn, JoinTable, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { ManyToMany } from 'typeorm';
 import { ServiceType } from '../services/services.entity';
 import { User } from '../user/user.entity';
@@ -33,6 +32,4 @@ export class Search {
 
   @Column()
   from: Date;
-
-
 }

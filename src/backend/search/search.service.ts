@@ -2,11 +2,15 @@ import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Search } from './search.entity';
+import { Animal } from '../animal/animal.entity';
+import { ServiceType } from '../services/services.entity';
 
 @Injectable()
 export class SearchService {
   constructor(
     @InjectRepository(Search) private searchRepository: Repository<Search>,
+    @InjectRepository(Animal) private animalRepository: Repository<Animal>,
+    @InjectRepository(ServiceType) private serviceTypeRepository: Repository<ServiceType>,
   ) {}
 
   async getAllSearches(): Promise<Search[]> {
@@ -14,6 +18,19 @@ export class SearchService {
   }
 
   async createSearch(data: Search): Promise<Search> {
+    let animals = [];
+    console.log(data)
+    for (let animal of data.animals) {
+      console.log(data)
+      animals.push(await this.animalRepository.findOne(animal))
+    }
+    data.animals = animals;
+    let serviceTypes = [];
+    for (let serviceType of data.serviceTypes) {
+      serviceTypes.push(await this.serviceTypeRepository.findOne(serviceType))
+    }
+    data.serviceTypes = serviceTypes;
+    console.log(data);
     return await this.searchRepository.save(data);
   }
 
