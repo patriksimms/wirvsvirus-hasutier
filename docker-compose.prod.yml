@@ -7,6 +7,8 @@ services:
       dockerfile: ./.docker/node.dockerfile
     volumes:
       - ./src:/usr/src/app/src
+      - ./public/uploads:/usr/src/app/public/uploads
+
     command: "npm run start"
     ports:
     - "3000:3000"
