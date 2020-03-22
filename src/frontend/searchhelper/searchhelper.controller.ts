@@ -33,8 +33,6 @@ export class SearchhelperController {
     const services = await ser.getAllServices();
     const offers = await ser.getAllOffers();
 
-
-
     const offerArr = [];
     let offer;
     let breaker;
