@@ -31,4 +31,8 @@ export class BeConnectionService {
     //TODO AFTER API HAS ENDPOINT
   }
 
+  async addAnimal(data : any){
+    //TODO AFTER API HAS ENDPOINT
+  }
+
 }

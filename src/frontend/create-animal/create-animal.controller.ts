@@ -12,4 +12,27 @@ export class CreateAnimalController {
     const animals = await ser.getAllAnimals();
     return { 'animals': animals };
   }
+
+  @Post("/submit")
+  async submit(@Body() body){
+    const ser = new BeConnectionService(new HttpService());
+
+    //TODO FINISH WHEN API CALL IS READY
+    const animal = {
+      "species": body.animalSpecies,
+      "name": body.animalName,
+      "age": body.animalAge,
+      "weight": body.animalWeight,
+      "height": body.animalHeight
+    };
+
+    let res;
+
+    try {
+      res = await ser.addAnimal(animal);
+    } catch (e) {
+      console.log("Error at Adding Animal")
+      //TODO ERRORHANDLING
+    }
+  }
 }

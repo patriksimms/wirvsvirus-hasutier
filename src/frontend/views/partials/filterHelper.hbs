@@ -5,8 +5,8 @@
             <div class="row">
                 <label for="service">Service</label>
                 <select id="service" name="service">
-                    {{#each page.service}}
-                        <option value="{{this.uuid}}">{{this.name}}</option>
+                    {{#each services}}
+                        <option value="{{this.name}}">{{this.name}}</option>
                     {{/each}}
                 </select>
             </div>
@@ -15,17 +15,18 @@
                 <!-- TODO-->
             </div>
             <!-- Alter -->
-            <div class="row">
-                <label for="age">Alter:</label>
-                <p class="range-field center-align">
-                    <span id="sliderValue"></span><br>
-                    <input type="range" min="0" max="100" step="1" name="sld" value="50" onchange="showValue(this.value)">
-                </p>
+            <div class="row filterGroup">
+                <label for="age">Alter:</label><br>
+                <input class="col l6 xl6 s6" type="number" id="begin" name="begin" min="18" max="98" placeholder="Anfang"
+                       pattern="[0-9]{2}" onchange="handleChange(this);">
+                <input class="col l6 xl6 s6" type="number" id="end" name="end" min="19" max="99" placeholder="Ende"
+                       pattern="[0-9]{2}0" onchange="handleChange(this);">
             </div>
-            console.log(__dirname);
+
             <!-- Geschlecht -->
             <div class="row">
                 <div class="">
+                    <label for="age">Geschlecht:</label><br>
                     <select id="gender">
                         <option value="male">Männlich</option>
                         <option value="female">Weiblich</option>
@@ -36,4 +37,6 @@
         </div>
     </form>
 </div>
+<script type="text/javascript"  src="assets/js/handleInputfield.js"></script>
+
 
