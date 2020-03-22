@@ -1,4 +1,3 @@
-{{ setVar "offer" true }}
 {{> topInclude }}
 
 <div class="container">
@@ -18,10 +17,10 @@
             <div class="col s1 l1 xl1">
             </div>
             <div class="col s12 l8 xl8 filteroffer">
-                {{>containerOffer_Owner}}
+                {{>listLayout bool=false  offerarr=offers}}
             </div>
         </div>
     </div>
-
+</div>
 {{>bottomInclude}}
 <script type="text/javascript" src="assets/js/popup.js"></script>

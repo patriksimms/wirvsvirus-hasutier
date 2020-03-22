@@ -17,6 +17,14 @@ export class BeConnectionService {
     return this.httpService.get('http://localhost:3000/service/types').pipe(map(response => response.data)).toPromise();
   }
 
+  async getAllOffers() {
+    return this.httpService.get('http://localhost:3000/offer').pipe(map(response => response.data)).toPromise();
+  }
+
+  async getAllSearches() {
+    return this.httpService.get('http://localhost:3000/search').pipe(map(response => response.data)).toPromise();
+  }
+
   async registerUser(data: any) {
     const response = await this.httpService.post('http://localhost:3000/auth/register', data).pipe(map(response => response.data)).toPromise();
 
