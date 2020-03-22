@@ -48,7 +48,7 @@ export class UserController {
 
   @Get(':userId/image')
   async getUserImage(@Param('userId') userId, @Res() res) {
-    let user = await this.userService.getUser(userId);
+    const user = await this.userService.getUser(userId);
     if (user.imageName == undefined) {
       throw new BadRequestException('user has no image');
     }

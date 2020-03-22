@@ -1,5 +1,17 @@
-import { Body, Controller, Get, HttpService, Post, Render, Response, Request } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpService,
+  Post,
+  Render,
+  Response,
+  Request,
+  UploadedFile,
+  UseInterceptors,
+} from '@nestjs/common';
 import { BeConnectionService } from '../../services/beConnectionService';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('register')
 export class RegisterUserController {
@@ -11,7 +23,8 @@ export class RegisterUserController {
   }
 
   @Post('/submit')
-  async submit(@Body() body) {
+  @UseInterceptors(FileInterceptor('fileRegister'))
+  async submit(@Body() body, @UploadedFile() file) {
     const ser = new BeConnectionService(new HttpService());
 
     const user = {
@@ -25,12 +38,14 @@ export class RegisterUserController {
       'hashedPassword': body.passwordRegister,
     };
 
+    console.log(file);
+
     let res;
     let res2;
 
     try {
-      res = await ser.registerUser(user);
-      //res2 = await ser.addUserPicture(res.id, { image: body.fileRegister });
+      //res = await ser.registerUser(user);
+      //res2 = await ser.addUserPicture("c7b8df97-0592-41e2-9ef0-b60317dca89c", { image: body.fileRegister });
     } catch (e) {
       console.log('Error at User Register');
       console.log(e);
