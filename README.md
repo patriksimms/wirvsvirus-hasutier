@@ -1,5 +1,5 @@
 <img src="https://i.imgur.com/fAzskNO.png">
-<h1>#WirVsVirsu Hackathon März 2020</h1>
+<h1>#WirVsVirus Hackathon März 2020</h1>
 
 <h2>Running the App locally</h2>
 <p>Benötigte Tools für das lokale ausführen</p>

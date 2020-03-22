@@ -24,9 +24,17 @@ nav {
     background-color: #2B2E4A !important;
 }
 
-button {
-    background-color: #084177 !important;
-}
+/*button {*/
+/*    background-color: #084177 !important;*/
+/*}*/
 .footer-copyright .row {
     margin-bottom: 0;
+}
+
+#loginButton {
+    background-color: #084177 !important;
+}
+
+.blue-button {
+    background-color: #084177 !important;
 }
