@@ -25,9 +25,9 @@ export class CreateOfferController {
 
     for (const elem in body) {
       if (elem.startsWith('offerAnimal')) {
-        animalList.push(elem.substring(11, elem.length));
+        animalList.push({ name: elem.substring(11, elem.length) });
       } else if (elem.startsWith('offerService')) {
-        serviceList.push(elem.substring(12, elem.length));
+        serviceList.push({ name: elem.substring(12, elem.length) });
       }
     }
 
@@ -40,14 +40,14 @@ export class CreateOfferController {
       'serviceTypes': serviceList,
       'description': body.offerDescription,
       'plz': body.offerPLZ,
-      'owner': "c7b8df97-0592-41e2-9ef0-b60317dca89c"
+      'owner': 'c7b8df97-0592-41e2-9ef0-b60317dca89c',
     };
 
     let res;
 
     try {
       res = await ser.addOffer(offer);
-      console.log(res)
+      console.log(res);
     } catch (e) {
       console.log('Error at Adding Offer');
       //TODO ERRORHANDLING
