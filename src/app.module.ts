@@ -38,7 +38,9 @@ import { CreateAnimalController } from './frontend/create-animal/create-animal.c
     AnimalModule,
   ],
 
-  controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, SearchofferController, SearchhelperController, CreateOfferController, CreateSearchController, ServiceController],
+  controllers: [AppController, AnimalController, UserController, RegisterController,
+    AppController, ProfileController, RegisterUserController, LoginController, SearchofferController,
+    SearchhelperController, CreateOfferController, CreateSearchController, ServiceController],
   providers: [AppService, AnimalService, UserService, ServiceService],
   exports: [TypeOrmModule],
 })
