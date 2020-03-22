@@ -7,29 +7,39 @@
 <div class="container">
     <div class="row">
         <form class="col l12" method="post" action="/create-offer/submit">
-            <div class="col l6">
-                <h5>Tierart(en)</h5>
-                {{#each animals}}
-                    <div class="row">
-                        <label class="input-field">
-                            <input type="checkbox" name="offerAnimal{{this.name}}" id="offerAnimal{{this
-                            .name}}">
-                            <span>{{this.name}}</span>
-                        </label>
-                    </div>
-                {{/each}}
+            <div class="row">
+                <div class="col l6">
+                    <h5>Tierart(en)</h5>
+                    {{#each animals}}
+                        <div class="row">
+                            <label class="input-field">
+                                <input type="checkbox" name="offerAnimal{{this.name}}" id="offerAnimal{{this
+                                .name}}">
+                                <span>{{this.name}}</span>
+                            </label>
+                        </div>
+                    {{/each}}
+                </div>
+                <div class="col l6">
+                    <h5>Service(s)</h5>
+                    {{#each services}}
+                        <div class="row">
+                            <label class="input-field">
+                                <input type="checkbox" name="offerService{{this.name}}" id="offerService{{this
+                                .name}}">
+                                <span>{{this.name}}</span>
+                            </label>
+                        </div>
+                    {{/each}}
+                </div>
             </div>
-            <div class="col l6">
-                <h5>Service(s)</h5>
-                {{#each services}}
-                    <div class="row">
-                        <label class="input-field">
-                            <input type="checkbox" name="offerService{{this.name}}" id="offerService{{this
-                            .name}}">
-                            <span>{{this.name}}</span>
-                        </label>
-                    </div>
-                {{/each}}
+
+            <div class="row">
+                <div class="input-field col l6">
+                    <label for="searchPLZ">PLZ</label>
+                    <input type="number" name="searchPLZ" id="searchPLZ" class="validate">
+                </div>
+                <div class="col l6"></div>
             </div>
 
             <div class="row">

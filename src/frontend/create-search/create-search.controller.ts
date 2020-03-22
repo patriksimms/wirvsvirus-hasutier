@@ -33,7 +33,7 @@ export class CreateSearchController {
       'serviceList': serviceList,
       'description': body.searchDescription,
       'startDate': body.searchDate,
-      'duration': body.searchDuration
+      //PLZ
     };
 
     let res;
