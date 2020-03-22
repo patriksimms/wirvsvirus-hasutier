@@ -38,3 +38,4 @@ ormconfig.json
 
 # imageupload ordner
 /uploads
+ormconfig.json

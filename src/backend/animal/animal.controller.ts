@@ -1,18 +1,27 @@
-import { BadRequestException, Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Res,
+  UploadedFile,
+  UseInterceptors,
+} from '@nestjs/common';
 import { AnimalService } from './animal.service';
 import { Animal } from './animal.entity';
 import { AnimalType } from './animalType.entity';
 import { User } from '../user/user.entity';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('animal')
 export class AnimalController {
-  constructor(private readonly animalService: AnimalService) {}
+  constructor(private readonly animalService: AnimalService) {
+  }
 
   @Get('types')
   async getAllAnimalTypes(): Promise<AnimalType[]> {
-
-    console.log("toll")
-
     return await this.animalService.getAllAnimalTypes();
   }
 
@@ -31,7 +40,7 @@ export class AnimalController {
     const animals = await this.animalService.getAllAnimalsForUser(params);
 
     if (animals === undefined || animals.length == 0) {
-      throw new BadRequestException('no animals found for user id')
+      throw new BadRequestException('no animals found for user id');
     }
     return animals;
   }
@@ -40,4 +49,24 @@ export class AnimalController {
   async createAnimal(@Body() params: Animal): Promise<Animal> {
     return await this.animalService.createAnimal(params);
   }
+
+  @Post(':animalId/upload')
+  @UseInterceptors(FileInterceptor('image'))
+  uploadFile(@Param('animalId') animalId, @UploadedFile()  file) {
+    this.animalService.addImageToAnimal(animalId, file.filename);
+    console.log(animalId);
+    console.log('file: ' + file.filename);
+  }
+
+  @Get(':animalId/image')
+  async getUserImage(@Param('animalId') animalId, @Res() res) {
+    let animal = await this.animalService.getAnimal(animalId);
+    if (animal.imageName == undefined) {
+      throw new BadRequestException('animal has no image');
+    }
+
+    res.sendFile(animal.imageName, { root: 'uploads' });
+  }
+
+
 }

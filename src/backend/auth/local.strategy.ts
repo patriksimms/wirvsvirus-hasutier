@@ -3,12 +3,10 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { UserService } from '../user/user.service';
-import { JwtStrategy } from './jwt.strategy';
-import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
-  constructor(private authService: AuthService, private jwtService: JwtService, private userService: UserService) {
+  constructor(private authService: AuthService, private userService: UserService) {
     super();
   }
 
@@ -17,14 +15,8 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     console.log(user);
 
     if (user && user.hashedPassword == password) {
-      console.log('toll');
-
       const {hashedPassword, ...cleanUser} = user;
-      const payload = { username: user.email, sub: user.id };
-      return {
-        ...cleanUser,
-        accessToken: this.jwtService.sign(payload),
-      };
+      return cleanUser;
     }
 
     return null;

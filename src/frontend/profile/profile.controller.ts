@@ -1,12 +1,12 @@
-import { Controller, Get, HttpService, Param, Render } from '@nestjs/common';
-import { BeConnectionService } from '../../services/beConnectionService';
+import { Controller, Get, Render, UseGuards, Request } from '@nestjs/common';
+import { AuthenticatedGuard } from 'src/backend/auth/authenticated.guard';
 
 @Controller('userprofile')
 export class ProfileController {
 
-  @Get(':uid')
+  @Get()
   @Render('userprofile')
-  async index(@Param() params) {
+  async index2(@Param() params) {
     const ser = new BeConnectionService(new HttpService());
 
     console.log(params.uid);
@@ -18,5 +18,10 @@ export class ProfileController {
     console.log(user);
 
     return { user: user, userImage: userImage, animals: animals };
+
+    
+  @UseGuards(AuthenticatedGuard)
+  index(@Request() req) {
+    return req.user;
   }
 }
