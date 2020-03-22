@@ -10,7 +10,7 @@ export class SearchService {
   ) {}
 
   async getAllSearches(): Promise<Search[]> {
-    return this.searchRepository.find();
+    return this.searchRepository.find({relations: ['serviceTypes', 'animals', 'owner']});
   }
 
   async createSearch(data: Search): Promise<Search> {
@@ -19,13 +19,13 @@ export class SearchService {
 
   async getSearchById(id: string): Promise<Search> {
     return await this.searchRepository.findOne(id,
-      { relations: ['serviceTypes', 'animals'] });
+      { relations: ['serviceTypes', 'animals', 'owner'] });
   }
 
   async getSearchesByUserId(userId: string): Promise<Search[]> {
     return await this.searchRepository.find({
       where: { owner: userId },
-      relations: ['serviceTypes', 'animals'],
+      relations: ['serviceTypes', 'animals', 'owner'],
     });
   }
 

@@ -11,7 +11,7 @@ export class OfferService {
   }
 
   async getAllOffers(): Promise<Offer[]> {
-    return await this.offerRepository.find();
+    return await this.offerRepository.find({relations: ['serviceTypes', 'animalTypes', 'owner']});
   }
 
   async createOffer(data: Offer): Promise<Offer> {
@@ -25,14 +25,14 @@ export class OfferService {
   async getOfferByUserId(userId: string): Promise<Offer[]> {
     return await this.offerRepository.find({
       where: { owner: userId },
-      relations: ['serviceTypes', 'animalTypes'],
+      relations: ['serviceTypes', 'animalTypes', 'owner'],
     });
   }
 
   async getOffersByPLZ(plz: string): Promise<Offer[]> {
     return await this.offerRepository.find({
       where: { plz: plz },
-      relations: ['serviceTypes', 'animalTypes'],
+      relations: ['serviceTypes', 'animalTypes', 'owner'],
     });
   }
 
