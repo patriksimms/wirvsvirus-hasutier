@@ -30,14 +30,14 @@
                     <h5>Service(s)</h5>
                     {{#each services}}
                         <div class="row">
-                            <label>
+                            <label class="input-field">
                                 <input type="checkbox" name="offerService{{this.name}}" id="offerService{{this.name}}">
                                 <span>{{this.name}}</span>
                             </label>
                         </div>
                     {{/each}}
                 </div>
-                <div class="col l6">
+                <div class="col l6 input-field">
                     <h5>Tier(e) auswählen</h5>
                     <div>
                         <a>Tier(e) hinzufügen</a>
@@ -46,12 +46,12 @@
             </div>
 
             <div class="row">
-                <div class="col l6">
+                <div class="input-field col l6">
                     <label for="searchDate">Ab wann wird gesucht</label>
-                    <input type="date" placeholder="" name="searchDate" id="searchDate">
+                    <input type="text" id="searchDate" name="searchDate" class="datepicker">
                 </div>
-                <div class="col l6">
-                    <label for="searchDuration">Suchdauer</label>
+                <div class="col l6 input-field">
+                    <label class="active" for="searchDuration">Suchdauer</label>
                     <select name="searchDuration" id="searchDuration">
                         <option value="Unbekannt" selected>Unbekannt</option>
                         <option value="<1 Woche"><1 Woche</option>
@@ -61,11 +61,12 @@
                     </select>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col l12 input-field">
                     <label for="searchDescription">Beschreibung der Suche</label>
-                    <textarea id="searchDescription" class="materialize-textarea" maxlength="600"></textarea>
+                    <textarea name="searchDescription" id="searchDescription" class="materialize-textarea"
+                              maxlength="600"></textarea>
                     <span class="helper-text">Maximal 600 Zeichen</span>
                 </div>
             </div>
@@ -74,4 +75,9 @@
         </form>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    let elems = document.querySelectorAll('.datepicker');
+    let instances = M.Datepicker.init(elems, options);
+});</script>
 {{> bottomInclude }}
