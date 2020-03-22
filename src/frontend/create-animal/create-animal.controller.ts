@@ -24,7 +24,7 @@ export class CreateAnimalController {
       "weight": body.animalWeight,
       "size": body.animalHeight,
       "description": body.animalDescription,
-      "owner": "6a10caa4-f870-4eb1-8140-714aaa60f295"
+      "owner": "c7b8df97-0592-41e2-9ef0-b60317dca89c"
     };
 
     let res;
