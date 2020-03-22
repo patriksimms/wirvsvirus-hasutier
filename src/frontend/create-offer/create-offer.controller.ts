@@ -39,6 +39,7 @@ export class CreateOfferController {
       'animalList': animalList,
       'serviceList': serviceList,
       'description': body.offerDescription
+      //PLZ für Angebot
     };
 
     let res;

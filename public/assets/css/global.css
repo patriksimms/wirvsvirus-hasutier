@@ -11,3 +11,7 @@ main {
 #siteHeaderUnderline {
     margin-bottom: 5vh;
 }
+
+.footer-copyright .row {
+    margin-bottom: 0;
+}

@@ -7,10 +7,10 @@
 </div>
 <div class="container">
     <div class="row">
-        <form class="col l12">
+        <form class="col l12" method="post" action="/create-animal/submit">
             <div class="row">
                 <div class="input-field col l12">
-                    <select>
+                    <select name="animalSpecies">
                         <option value="" disabled selected>Tierart wählen</option>
                         {{#each animals}}
                             <option value="{{this.name}}">{{this.name}}
@@ -20,28 +20,46 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col l12">
+                <div class="input-field col l6">
                     <label for="animalName">Name</label>
                     <input type="text" id="animalName" name="animalName">
                 </div>
+                <div class="input-field col l6 file-field">
+                    <div class="file-path-wrapper col l10">
+                        <input class="file-path validate" type="text"
+                               placeholder="Profilbild auswählen"/>
+                    </div>
+                    <div class="btn col l2">
+                        <span>Browse</span>
+                        <input type="file"/>
+                    </div>
+                </div>
             </div>
             <div class="row">
-                <div class="input-field col l6">
+                <div class="input-field col l4">
                     <label for="animalAge">Alter</label>
                     <input type="number" min="0" max="50" id="animalAge" name="animalAge">
                 </div>
-                <div class="input-field col l6">
+                <div class="input-field col l4">
                     <label for="animalWeight">Gewicht</label>
                     <input type="number" min="0" max="200" id="animalWeight" name="animalWeight">
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col l6">
+                <div class="input-field col l4">
                     <label for="animalHeight">Größe</label>
                     <input type="number" min="0" max="200" id="animalHeight" name="animalHeight">
                     <span class="helper-text">Größe in cm</span>
                 </div>
             </div>
+            <div class="row">
+                <div class="input-field col l12">
+                    <label for="animalDescription">Beschreibung</label>
+                    <textarea name="animalDescription" id="animalDescription" maxlength="600"
+                              class="materialize-textarea"></textarea>
+                    <span class="helper-text">Maximal 600 Zeichen</span>
+                </div>
+            </div>
+
+            <input type="submit" class="btn" value="Hinzufügen">
         </form>
     </div>
 </div>

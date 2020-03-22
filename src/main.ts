@@ -17,6 +17,9 @@ async function bootstrap() {
   app.useStaticAssets(join(__dirname, '../', 'public'));
   app.setBaseViewsDir(join(__dirname, '../src/frontend', 'views'));
   app.setViewEngine('hbs');
+  hbs.registerHelper("setVar", function(varName, varValue, options) {
+    options.data.root[varName] = varValue;
+  });
 
   await app.listen(3000);
 }

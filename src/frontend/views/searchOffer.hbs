@@ -5,30 +5,23 @@
 
     <div class="row l1 s1 xl1"></div>
     <ul class=" row l10 s10 xl10 tabs tabs-fixed-width tab-demo z-depth-1 taboffer">
-        <li class="tab"><a href="#test1">Für Hunde besitzer</a></li>
-        <li class="tab"><a href="#test2">Für Anbieter</a></li>
+        <li class="tab col s6"><a target="_self" href="">Für Hunde besitzer</a></li>
+        <li class="tab col s6"><a target="_self" href="/searchHelper">Für Anbieter</a></li>
     </ul>
     <div class="row l1 s1 xl1"></div>
     <div class="row s12 l12 xl12">
 
         <div class="row ">
             <div class="col s12 l3 xl3 filteroffer">
-                {{#if offer}}
-                    {{>filterOffer}}
-                {{else}}
-                    {{>filterHelper}}
-                {{/if}}
+                {{>filterOffer}}
             </div>
             <div class="col s1 l1 xl1">
             </div>
             <div class="col s12 l8 xl8 filteroffer">
-                {{#if offer}}
-                    {{>containerOffer_Owner}}
-                {{else}}
-                    {{>containerOffer_Customer}}
-                {{/if}}
+                {{>containerOffer_Owner}}
             </div>
         </div>
     </div>
 
 {{>bottomInclude}}
+<script type="text/javascript" src="assets/js/popup.js"></script>

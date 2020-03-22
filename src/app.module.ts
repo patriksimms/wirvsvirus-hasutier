@@ -8,7 +8,8 @@ import { RegisterController } from './backend/user/user.controller';
 import { AppService } from './app.service';
 import { RegisterUserController } from './frontend/registerUser/registerUser.controller';
 import { LoginController } from './frontend/login/login.controller';
-import { SearchController } from './frontend/search/search.controller';
+import { SearchofferController } from './frontend/search/searchoffer.controller';
+import { SearchhelperController } from './frontend/searchhelper/searchhelper.controller';
 import { ProfileController } from './frontend/profile/profile.controller';
 import { CreateOfferController } from './frontend/create-offer/create-offer.controller';
 import { CreateSearchController } from './frontend/create-search/create-search.controller';
@@ -17,13 +18,15 @@ import { User } from './backend/user/user.entity';
 import { AuthModule } from './backend/auth/auth.module';
 import { Animal } from './backend/animal/animal.entity';
 import { UserModule } from './backend/user/user.module';
-import { NoteModule } from './backend/notes/note.module';
 import { AnimalModule } from './backend/animal/animal.module';
 import { AnimalType } from './backend/animal/animalType.entity';
 import { ServiceType } from './backend/services/services.entity';
 import { ServiceController } from './backend/services/serviceController';
 import { ServiceService } from './backend/services/serviceService';
 import { CreateAnimalController } from './frontend/create-animal/create-animal.controller';
+import { MulterModule } from '@nestjs/platform-express';
+import { OfferModule } from './backend/offer/offer.module';
+import { SearchModule } from './backend/search/search.module';
 
 
 @Module({
@@ -33,11 +36,15 @@ import { CreateAnimalController } from './frontend/create-animal/create-animal.c
     TypeOrmModule.forFeature([User, Animal, AnimalType, ServiceType]),
     UserModule,
     HttpModule,
-    NoteModule,
-    AnimalModule
+    AnimalModule,
+    MulterModule.register({
+      dest: './uploads',
+    }),
+    OfferModule,
+    SearchModule,
   ],
 
-  controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, SearchController, CreateOfferController, CreateSearchController, ServiceController, CreateAnimalController],
+  controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, SearchofferController, SearchhelperController, CreateOfferController, CreateSearchController, ServiceController, CreateAnimalController],
   providers: [AppService, AnimalService, UserService, ServiceService],
   exports: [TypeOrmModule],
 })

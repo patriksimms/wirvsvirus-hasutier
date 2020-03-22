@@ -3,9 +3,10 @@ import { Controller, Get, Render } from '@nestjs/common';
 @Controller('profile')
 export class ProfileController {
 
-  @Get()
+  @Get(':uid')
   @Render('userprofile')
   index() {
+    // TODO fetch user data
     const dummyJson = {
       id: 2,
       email: 'max@mustermann.de',
