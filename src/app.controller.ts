@@ -2,10 +2,12 @@ import { Controller, Get, Render } from '@nestjs/common';
 
 @Controller()
 export class AppController {
+
   @Get()
-  @Render('createSearch')
+  @Render('homepage')
   root() {
-    return {message: "hello world"};
+    return {};
   }
+
 }
 

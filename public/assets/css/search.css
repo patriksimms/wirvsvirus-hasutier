@@ -17,3 +17,7 @@
 .range-field {
     color:grey;
 }
+
+button .filter {
+    width: fit-content;
+}

@@ -1,13 +1,13 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Animal } from '../animal/animal.entity';
-import { Note } from '../notes/note.entity';
+import { Offer } from '../offer/offer.entity';
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({unique: true})
+  @Column({ unique: true })
   email: string;
 
   @Column()
@@ -22,7 +22,7 @@ export class User {
   @Column()
   isVerified: boolean;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   verifiedBy: string;
 
   @Column()
@@ -34,9 +34,12 @@ export class User {
   @Column()
   hashedPassword: string;
 
+  @Column()
+  imageName: string;
+
   @OneToMany(type => Animal, animal => animal.owner)
   animals: Animal[];
 
-  @OneToMany(type => Note, note => note.owner)
-  notes: Note[];
+  @OneToMany(type => Offer, offer => offer.owner)
+  offers: Offer[];
 }
