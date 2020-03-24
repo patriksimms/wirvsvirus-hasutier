@@ -1,22 +1,30 @@
-import { Body, Controller, Get, HttpService, Post, Render } from '@nestjs/common';
+import { Body, Controller, Get, HttpService, Post, Render, UseGuards, Request } from '@nestjs/common';
 import { BeConnectionService } from '../../services/beConnectionService';
+import { AuthenticatedGuard } from '../../backend/auth/authenticated.guard';
 
 @Controller('create-search')
 export class CreateSearchController {
 
   @Get()
+  @UseGuards(AuthenticatedGuard)
   @Render('createSearch')
-  async index() {
+  async index(@Request() req) {
     const ser = new BeConnectionService(new HttpService());
     const services = await ser.getAllServices();
 
-    const animals = await ser.getAnimalsForUser('c7b8df97-0592-41e2-9ef0-b60317dca89c');
+    let animals;
+
+    try {
+      animals = await ser.getAnimalsForUser(req.user.id);
+    } catch (e) {
+    }
 
     return { services: services, animals: animals };
   }
 
   @Post('/submit')
-  async submit(@Body() body) {
+  @UseGuards(AuthenticatedGuard)
+  async submit(@Body() body, @Request() req) {
     const ser = new BeConnectionService(new HttpService());
 
     const serviceList = [];
@@ -38,7 +46,7 @@ export class CreateSearchController {
       'description': body.searchDescription,
       'plz': body.searchPLZ,
       'from': body.searchDate,
-      'owner': 'c7b8df97-0592-41e2-9ef0-b60317dca89c'
+      'owner': req.user.id
     };
 
     let res;

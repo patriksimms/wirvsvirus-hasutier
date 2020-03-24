@@ -1,13 +1,21 @@
-import { Controller, Get, Render, UseGuards, Request, Param, HttpService } from '@nestjs/common';
+import { Controller, Get, Render, UseGuards, Request, Param, HttpService, Response, Res } from '@nestjs/common';
 import { AuthenticatedGuard } from 'src/backend/auth/authenticated.guard';
 import { BeConnectionService } from '../../services/beConnectionService';
 
 @Controller('userprofile')
 export class ProfileController {
 
-  @Get(":uid")
+  @Get()
+  @Render('userprofile')
+  async easyIndex(@Res() res, @Request() req) {
+
+    res.redirect("/userprofile/" + req.user.id);
+  }
+
+  @Get(':uid')
   @Render('userprofile')
   async index(@Param() params) {
+
     const ser = new BeConnectionService(new HttpService());
 
     console.log(params.uid);
@@ -17,9 +25,14 @@ export class ProfileController {
     let image;
     try {
       animals = await ser.getAnimalsForUser(params.uid);
+    } catch (e) {
+    }
+
+    try {
       image = await ser.getUserPicture(params.uid);
       console.log(image);
     } catch (e) {
+
     }
 
     console.log(user);

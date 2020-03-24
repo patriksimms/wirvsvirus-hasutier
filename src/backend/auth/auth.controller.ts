@@ -14,7 +14,7 @@ export class AuthController {
     @UseGuards(LoginGuard)
     @Post('login')
     async login(@Request() req, @Res() res : Response) {
-        res.redirect("/profile")
+        res.redirect("/")
     }
 
     @Post('register')

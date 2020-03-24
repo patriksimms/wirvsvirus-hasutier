@@ -8,7 +8,7 @@ import {
   Response,
   Request,
   UploadedFile,
-  UseInterceptors,
+  UseInterceptors, Res,
 } from '@nestjs/common';
 import { BeConnectionService } from '../../services/beConnectionService';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -24,7 +24,7 @@ export class RegisterUserController {
 
   @Post('/submit')
   @UseInterceptors(FileInterceptor('fileRegister'))
-  async submit(@Body() body, @UploadedFile() file) {
+  async submit(@Body() body, @UploadedFile() file, @Res() response) {
     const ser = new BeConnectionService(new HttpService());
 
     const user = {
@@ -46,6 +46,8 @@ export class RegisterUserController {
     try {
       res = await ser.registerUser(user);
       res2 = await ser.addUserPicture(res.id, file);
+
+      response.redirect("/login")
     } catch (e) {
       console.log('Error at User Register');
       console.log(e);

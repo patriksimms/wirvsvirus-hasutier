@@ -12,7 +12,7 @@ export class AuthenticatedGuard implements CanActivate {
     const request = httpContext.getRequest();
 
 
-    console.log(request.session)
+    console.log(request.session);
     try {
       if (request.session.passport.user) {
         return true;

@@ -12,7 +12,6 @@ import {
 import { AnimalService } from './animal.service';
 import { Animal } from './animal.entity';
 import { AnimalType } from './animalType.entity';
-import { User } from '../user/user.entity';
 import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('animal')
@@ -37,7 +36,9 @@ export class AnimalController {
 
   @Get('user/:id')
   async getAnimalForUser(@Param() params): Promise<Animal[]> {
-    const animals = await this.animalService.getAllAnimalsForUser(params);
+    const animals = await this.animalService.getAllAnimalsForUser(params.id);
+
+    console.log("Backend Animals: " + animals);
 
     if (animals === undefined || animals.length == 0) {
       throw new BadRequestException('no animals found for user id');

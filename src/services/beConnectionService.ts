@@ -106,6 +106,4 @@ export class BeConnectionService {
 
     return response;
   }
-
-
 }

@@ -1,6 +1,7 @@
-import { Body, Controller, Get, HttpService, Post, Render } from '@nestjs/common';
+import { Body, Controller, Get, HttpService, Post, Render, UseGuards, Request } from '@nestjs/common';
 import { BeConnectionService } from '../../services/beConnectionService';
 import { elementAt } from 'rxjs/operators';
+import { AuthenticatedGuard } from '../../backend/auth/authenticated.guard';
 
 @Controller('create-offer')
 export class CreateOfferController {
@@ -15,7 +16,8 @@ export class CreateOfferController {
   }
 
   @Post('/submit')
-  async submit(@Body() body) {
+  @UseGuards(AuthenticatedGuard)
+  async submit(@Body() body, @Request() req) {
     const ser = new BeConnectionService(new HttpService());
 
     console.log(JSON.stringify(body));
@@ -40,7 +42,7 @@ export class CreateOfferController {
       'serviceTypes': serviceList,
       'description': body.offerDescription,
       'plz': body.offerPLZ,
-      'owner': 'c7b8df97-0592-41e2-9ef0-b60317dca89c',
+      'owner': req.user.id
     };
 
     let res;

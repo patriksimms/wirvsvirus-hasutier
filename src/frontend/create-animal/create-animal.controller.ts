@@ -1,12 +1,25 @@
-import { Body, Controller, Get, HttpService, Post, Render, UploadedFile, UseInterceptors } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpService,
+  Post,
+  Render,
+  UploadedFile,
+  UseGuards,
+  UseInterceptors,
+  Request
+} from '@nestjs/common';
 import { BeConnectionService } from '../../services/beConnectionService';
 import { elementAt } from 'rxjs/operators';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { AuthenticatedGuard } from '../../backend/auth/authenticated.guard';
 
 @Controller('create-animal')
 export class CreateAnimalController {
 
   @Get()
+  @UseGuards(AuthenticatedGuard)
   @Render('createAnimal')
   async index() {
     const ser = new BeConnectionService(new HttpService());
@@ -15,8 +28,9 @@ export class CreateAnimalController {
   }
 
   @Post("/submit")
+  @UseGuards(AuthenticatedGuard)
   @UseInterceptors(FileInterceptor('animalFile'))
-  async submit(@Body() body, @UploadedFile() file){
+  async submit(@Body() body, @UploadedFile() file, @Request() req){
     const ser = new BeConnectionService(new HttpService());
 
     const animal = {
@@ -26,7 +40,7 @@ export class CreateAnimalController {
       "weight": body.animalWeight,
       "size": body.animalHeight,
       "description": body.animalDescription,
-      "owner": "c7b8df97-0592-41e2-9ef0-b60317dca89c"
+      "owner": req.user.id
     };
 
     let res;
