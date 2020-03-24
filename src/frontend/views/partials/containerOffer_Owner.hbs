@@ -5,25 +5,25 @@
         </div>
         <div class="card-stacked" id="info">
             <div class="card-content">
-            <ul>
-                 <li><label for="name">Name:</label><br>{{helpers.owner.lastName}}</li>
-                 <li><label for="firstname">VorName:</label><br>{{helpers.owner.name}}</li>
-                 <li><label for="age">Alter:</label><br>{{helpers.owner.birthDate}}</li>
-                 </ul>
-         <!--   <p class="flow-text">Name: {{helpers.owner.lastName}}</p>
+                <ul>
+                    <li><label for="name">Name:</label><br>{{helpers.owner.lastName}}</li>
+                    <li><label for="firstname">VorName:</label><br>{{helpers.owner.name}}</li>
+                    <li><label for="age">Alter:</label><br>{{helpers.owner.birthDate}}</li>
+                </ul>
+                <!--   <p class="flow-text">Name: {{helpers.owner.lastName}}</p>
                 <p class="flow-text">VorName: {{helpers.owner.name}}</p>
                 <p class="flow-text">Geburtstag: {{helpers.owner.birthDate}}</p>-->
                 <br>
-             {{#if helpers.animalTypes }}
-                                    <div class="row">
-                                    <label>Erfahrung:</label><br>
-                                    {{#each helpers.animalTypes }}
-                                        <div class="chip">
-                                            this
-                                         </div>
-                                    {{/each}}
-                                    </div>
-                                 {{/if}}
+                {{#if helpers.animalTypes }}
+                    <div class="row">
+                        <label>Erfahrung:</label><br>
+                        {{#each helpers.animalTypes }}
+                            <div class="chip">
+                                this
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/if}}
                 <p>{{helpers.description}}</p>
 
             </div>
@@ -50,7 +50,5 @@
 </div>
 <script type="text/javascript" src="assets/js/search.js"></script>
 <script>
-    $(document).ready(function() {
-        $('.modal').modal();
-    })
+    $(document).ready(() => $('.modal').modal());
 </script>
