@@ -20,3 +20,7 @@
 button .filter {
     width: fit-content;
 }
+
+.card-attribute {
+    margin: 0;
+}

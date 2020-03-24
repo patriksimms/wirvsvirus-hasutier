@@ -6,30 +6,34 @@
                 <img src="/assets/img/cat2.jpg" alt="Tier Bild">
             </div>
             <div class="card-stacked" id="info">
+                <div class="container">
+                    <label for="name">Name:</label>
+                    <p class="flow-text card-attribute">{{this.name}}</p>
+                    <label for="firstname">Gewicht(in kg):</label>
+                    <p class="flow-text card-attribute">{{this.weight}}</p>
+                    <label for="age">Größe(in cm):</label>
+                    <p class="flow-text card-attribute">{{this.size}}</p>
 
-                <label for="name">Name:</label><br>{{this.name}}
-                <label for="firstname">Gewicht(in kg):</label><br>{{this.weight}}
-                <label for="age">Größe(in cm):</label><br>{{this.size}}
-
-                <div class="card-content">
-                    <p>{{offers.description}}</p>
-                </div>
-                <div class="card-action center-align box">
-                    <a class="btn-flat modal-trigger" href="#terms">Anfragen</a>
-                </div>
-
-                <div class="modal" id="terms">
-                    <div class="modal-content center-align">
-                        <h5>Zustimmen </h5>
-                        <ul>
-                            <li>Ihre persönlichen Daten werden übersand</li>
-                            <li>Sie stellen eine Anfrage das Angebot anzunehmen</li>
-                            <li>Sie stellen eine Anfrage zur Kontaktaufnahme</li>
-                        </ul>
+                    <div class="card-content">
+                        <p>{{offers.description}}</p>
                     </div>
-                    <div class="modal-footer center-align">
-                        <a href="#" class="modal-close btn orange row l6 xl6 s6">Zustimmen und Schliessen</a>
-                        <a href="#" class="modal-close btn orange row l6 xl6 s6">Abbrechen</a>
+                    <div class="card-action center-align box">
+                        <a class="btn-flat modal-trigger" href="#terms">Anfragen</a>
+                    </div>
+
+                    <div class="modal" id="terms">
+                        <div class="modal-content center-align">
+                            <h5>Zustimmen </h5>
+                            <ul>
+                                <li>Ihre persönlichen Daten werden übersand</li>
+                                <li>Sie stellen eine Anfrage das Angebot anzunehmen</li>
+                                <li>Sie stellen eine Anfrage zur Kontaktaufnahme</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer center-align">
+                            <a href="#" class="modal-close btn orange row l6 xl6 s6">Zustimmen und Schliessen</a>
+                            <a href="#" class="modal-close btn orange row l6 xl6 s6">Abbrechen</a>
+                        </div>
                     </div>
                 </div>
             </div>
