@@ -5,11 +5,11 @@
     <div class="list">
         {{#if temp}}
             {{#each helperarr}}
-                <div> {{>containerOffer_Owner helpers=this}}</div>
+                {{>containerOffer_Owner helpers=this}}
             {{/each}}
         {{else}}
             {{#each offerarr}}
-                <div> {{>containerOffer_Customer offers=this}}</div>
+                {{>containerOffer_Customer offers=this}}
             {{/each}}
         {{/if}}
     </div>
