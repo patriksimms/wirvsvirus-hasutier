@@ -6,24 +6,55 @@
     <nav>
         <div class="nav-wrapper container">
             <a href="/" class="brand-logo">Pet-Helper</a>
-            <a href="/" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a href="/" data-target="mobile-nav" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
             <ul class="right hide-on-med-and-down">
-                <li><a id="" href="/searchOffer">Einträge durchsuchen</a></li>
-                <li><a id="" href="/create-search">Hilfe suchen</a></li>
-                <li><a id="" href="/create-offer">Hilfe anbieten</a></li>
-                <li><a id="" href="/login">Login</a></li>
-                <li><a id="" href="/register">Registrieren</a></li>
+                <li>
+                    <a id="" href="/searchOffer">Einträge durchsuchen</a>
+                </li>
+                <li>
+                    <a id="" href="/create-search">Hilfe suchen</a>
+                </li>
+                <li>
+                    <a id="" href="/create-offer">Hilfe anbieten</a>
+                </li>
+                {{#if loggedIn }}
+                    <li>
+                        <a id="" href="/userprofile">Profil</a>
+                    </li>
+                    <li>
+                        <a id="" href="/logout">Abmelden</a>
+                    </li>
+                {{else}}
+                    <li>
+                        <a id="" href="/login">Login</a>
+                    </li>
+                    <li>
+                        <a id="" href="/register">Registrieren</a>
+                    </li>
+                {{/if}}
             </ul>
         </div>
     </nav>
 </div>
 
 <ul class="sidenav" id="mobile-nav">
-    <li><a id="" href="/searchOffer">Einträge durchsuchen</a></li>
-    <li><a id="" href="/create-search">Hilfe suchen</a></li>
-    <li><a id="" href="/create-offer">Hilfe anbieten</a></li>
-    <li><a id="" href="/login">Login</a></li>
-    <li><a id="" href="/register">Registrieren</a></li>
+    <li>
+        <a id="" href="/searchOffer">Einträge durchsuchen</a>
+    </li>
+    <li>
+        <a id="" href="/create-search">Hilfe suchen</a>
+    </li>
+    <li>
+        <a id="" href="/create-offer">Hilfe anbieten</a>
+    </li>
+    <li>
+        <a id="" href="/login">Login</a>
+    </li>
+    <li>
+        <a id="" href="/register">Registrieren</a>
+    </li>
 </ul>
 
 <script type="text/javascript" src="assets/materialize/materialize.min.js"></script>

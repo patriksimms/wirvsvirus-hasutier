@@ -6,6 +6,7 @@ import { BeConnectionService } from '../../services/beConnectionService';
 export class ProfileController {
 
   @Get()
+  @UseGuards(AuthenticatedGuard)
   @Render('userprofile')
   async easyIndex(@Res() res, @Request() req) {
 
@@ -14,11 +15,15 @@ export class ProfileController {
 
   @Get(':uid')
   @Render('userprofile')
-  async index(@Param() params) {
+  async index(@Param() params, @Request() req) {
 
     const ser = new BeConnectionService(new HttpService());
 
-    console.log(params.uid);
+    let logIn = false;
+
+    if(req.user != undefined){
+      logIn = true;
+    }
 
     const user = await ser.getUserData(params.uid);
     let animals;
@@ -37,7 +42,7 @@ export class ProfileController {
 
     console.log(user);
 
-    return { user: user, animals: animals, image: image };
+    return { user: user, animals: animals, image: image, loggedIn: logIn };
   }
 
   @UseGuards(AuthenticatedGuard)

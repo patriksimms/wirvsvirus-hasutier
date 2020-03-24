@@ -14,12 +14,18 @@ export class CreateSearchController {
 
     let animals;
 
+    let logIn = false;
+
+    if(req.user != undefined){
+      logIn = true;
+    }
+
     try {
       animals = await ser.getAnimalsForUser(req.user.id);
     } catch (e) {
     }
 
-    return { services: services, animals: animals };
+    return { services: services, animals: animals, loggedIn: logIn };
   }
 
   @Post('/submit')

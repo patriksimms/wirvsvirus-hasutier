@@ -21,10 +21,17 @@ export class CreateAnimalController {
   @Get()
   @UseGuards(AuthenticatedGuard)
   @Render('createAnimal')
-  async index() {
+  async index(@Request() req) {
     const ser = new BeConnectionService(new HttpService());
     const animals = await ser.getAllAnimals();
-    return { 'animals': animals };
+
+    let logIn = false;
+
+    if(req.user != undefined){
+      logIn = true;
+    }
+
+    return { 'animals': animals, loggedIn: logIn };
   }
 
   @Post("/submit")

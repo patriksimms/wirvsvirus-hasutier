@@ -1,4 +1,4 @@
-import { Controller, Get, HttpService, Param, Query, Render } from '@nestjs/common';
+import { Controller, Get, HttpService, Param, Query, Render, Request } from '@nestjs/common';
 import { BeConnectionService } from '../../services/beConnectionService';
 import { User } from '../../backend/user/user.entity';
 
@@ -8,7 +8,7 @@ export class SearchhelperController {
 
   @Get()
   @Render('searchHelper')
-  async index() {
+  async index(@Request() req) {
     const ser = new BeConnectionService(new HttpService());
     const animals = await ser.getAllAnimals();
     const services = await ser.getAllServices();
@@ -17,7 +17,14 @@ export class SearchhelperController {
     if (offers == undefined) {
       offers = [];
     }
-    return { 'animals': animals, 'services': services, 'helpers': offers };
+
+    let logIn = false;
+
+    if(req.user != undefined){
+      logIn = true;
+    }
+
+    return { 'animals': animals, 'services': services, 'helpers': offers, loggedIn: logIn };
   }
 
 

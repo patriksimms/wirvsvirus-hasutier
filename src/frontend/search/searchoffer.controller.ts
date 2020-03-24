@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpService, Post, Render } from '@nestjs/common';
+import { Body, Controller, Get, HttpService, Post, Render, Request } from '@nestjs/common';
 import { BeConnectionService } from '../../services/beConnectionService';
 
 @Controller('searchOffer')
@@ -6,11 +6,17 @@ export class SearchofferController {
 
   @Get()
   @Render('searchOffer')
-async index() {
+async index(@Request() req) {
     const ser = new BeConnectionService(new HttpService());
     const animals = await ser.getAllAnimals();
     const services = await ser.getAllServices();
     const search = await ser.getAllSearches();
+
+    let logIn = false;
+
+    if(req.user != undefined){
+      logIn = true;
+    }
 /*
     const animalArr = [];
     let temparr;
@@ -29,7 +35,7 @@ async index() {
 
 
 
-    return { 'animals': animals, 'services' : services, 'offers' : search };
+    return { 'animals': animals, 'services' : services, 'offers' : search, loggedIn: logIn };
   }
 
 /*

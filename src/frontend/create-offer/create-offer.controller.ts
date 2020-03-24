@@ -1,6 +1,5 @@
 import { Body, Controller, Get, HttpService, Post, Render, UseGuards, Request } from '@nestjs/common';
 import { BeConnectionService } from '../../services/beConnectionService';
-import { elementAt } from 'rxjs/operators';
 import { AuthenticatedGuard } from '../../backend/auth/authenticated.guard';
 
 @Controller('create-offer')
@@ -8,11 +7,18 @@ export class CreateOfferController {
 
   @Get()
   @Render('createOffer')
-  async index() {
+  async index(@Request() req) {
     const ser = new BeConnectionService(new HttpService());
     const services = await ser.getAllServices();
     const animals = await ser.getAllAnimals();
-    return { 'animals': animals, 'services': services };
+
+    let logIn = false;
+
+    if(req.user != undefined){
+      logIn = true;
+    }
+
+    return { 'animals': animals, 'services': services, loggedIn: logIn };
   }
 
   @Post('/submit')
@@ -36,7 +42,6 @@ export class CreateOfferController {
     console.log('AnimalList: ' + animalList);
     console.log('ServiceList: ' + serviceList);
 
-    //TODO add relevant Data when API is ready
     const offer = {
       'animalTypes': animalList,
       'serviceTypes': serviceList,
