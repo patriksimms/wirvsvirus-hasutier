@@ -27,6 +27,7 @@ import { CreateAnimalController } from './frontend/create-animal/create-animal.c
 import { MulterModule } from '@nestjs/platform-express';
 import { OfferModule } from './backend/offer/offer.module';
 import { SearchModule } from './backend/search/search.module';
+import { LogoutController } from './frontend/logout/logout.controller';
 
 
 @Module({
@@ -44,7 +45,7 @@ import { SearchModule } from './backend/search/search.module';
     SearchModule,
   ],
 
-  controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, SearchofferController, SearchhelperController, CreateOfferController, CreateSearchController, ServiceController, CreateAnimalController],
+  controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, LogoutController, SearchofferController, SearchhelperController, CreateOfferController, CreateSearchController, ServiceController, CreateAnimalController],
   providers: [AppService, AnimalService, UserService, ServiceService],
   exports: [TypeOrmModule],
 })
