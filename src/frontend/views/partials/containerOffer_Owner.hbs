@@ -5,44 +5,53 @@
         </div>
         <div class="card-stacked" id="info">
             <div class="card-content">
-                <ul>
-                    <li><label for="name">Name:</label><br>{{helpers.owner.lastName}}</li>
-                    <li><label for="firstname">VorName:</label><br>{{helpers.owner.name}}</li>
-                    <li><label for="age">Alter:</label><br>{{helpers.owner.birthDate}}</li>
-                </ul>
-                <!--   <p class="flow-text">Name: {{helpers.owner.lastName}}</p>
+                <div class="container">
+                    <ul>
+                        <li><label for="name">Name:</label>
+                            <p class="flow-text card-attribute">{{helpers.owner.lastName}}</p>
+                        </li>
+                        <li>
+                            <label for="firstname">VorName:</label>
+                            <p class="flow-text card-attribute">{{helpers.owner.name}}</p></li>
+                        <li>
+                            <label for="age">Alter:</label>
+                            <p class="flow-text card-attribute">{{helpers.owner.birthDate}}</p></li>
+                    </ul>
+                    <!--   <p class="flow-text">Name: {{helpers.owner.lastName}}</p>
                 <p class="flow-text">VorName: {{helpers.owner.name}}</p>
                 <p class="flow-text">Geburtstag: {{helpers.owner.birthDate}}</p>-->
-                <br>
-                {{#if helpers.animalTypes }}
-                    <div class="row">
-                        <label>Erfahrung:</label><br>
-                        {{#each helpers.animalTypes }}
-                            <div class="chip">
-                                this
-                            </div>
-                        {{/each}}
-                    </div>
-                {{/if}}
-                <p>{{helpers.description}}</p>
+                    <br>
+                    {{#if helpers.animalTypes }}
+                        <div class="row">
+                            <label>Erfahrung:</label><br>
+                            {{#each helpers.animalTypes }}
+                                <div class="chip">
+                                    this
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/if}}
+                    <p>{{helpers.description}}</p></div>
 
-            </div>
-            <div class="card-action center-align box">
-                <a class="btn-flat modal-trigger" href="#terms">Anfragen</a>
-            </div>
 
-            <div class="modal" id="terms">
-                <div class="modal-content center-align">
-                    <h5>Zustimmen </h5>
-                    <ul>
-                        <li>Ihre persönlichen Daten werden übersand</li>
-                        <li>Sie stellen eine Anfrage das Angebot anzunehmen</li>
-                        <li>Sie stellen eine Anfrage zur Kontaktaufnahme</li>
-                    </ul>
+                <div class="card-action center-align box">
+                    <a class="btn-flat modal-trigger" href="#terms">Anfragen</a>
                 </div>
-                <div class="modal-footer center-align">
-                    <a href="#" class=" center-align modal-close btn orange row l6 xl6 s6">Zustimmen und Schliessen</a>
-                    <a href="#" class=" center-align modal-close btn orange row l6 xl6 s6">Abbrechen</a>
+
+                <div class="modal" id="terms">
+                    <div class="modal-content center-align">
+                        <h5>Zustimmen </h5>
+                        <ul>
+                            <li>Ihre persönlichen Daten werden übersand</li>
+                            <li>Sie stellen eine Anfrage das Angebot anzunehmen</li>
+                            <li>Sie stellen eine Anfrage zur Kontaktaufnahme</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer center-align">
+                        <a href="#" class=" center-align modal-close btn orange row l6 xl6 s6">Zustimmen und
+                            Schliessen</a>
+                        <a href="#" class=" center-align modal-close btn orange row l6 xl6 s6">Abbrechen</a>
+                    </div>
                 </div>
             </div>
         </div>
