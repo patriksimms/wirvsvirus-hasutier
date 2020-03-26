@@ -45,7 +45,7 @@ export class SearchController {
 
     @Post()
     async createOffer(@Body() params: Search): Promise<Search> {
-        return await this.searchService.saveOffer(params);
+        return await this.searchService.createSearch(params);
     }
 
     @Delete(':id')

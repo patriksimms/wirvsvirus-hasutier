@@ -5,11 +5,11 @@
     <div class="list">
         {{#if isHelperSearch}}
             {{#each helperarr}}
-                {{>containerOffer_Owner helpers=this}}
+                {{>helpersView helpers=this}}
             {{/each}}
         {{else}} <!-- must be offer search -->
             {{#each offerarr}}
-                {{>containerOffer_Customer offers=this}}
+                {{>offersView offers=this}}
             {{/each}}
         {{/if}}
     </div>
