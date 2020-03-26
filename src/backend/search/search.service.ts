@@ -1,4 +1,4 @@
-import {Injectable} from '@nestjs/common';
+import {BadRequestException, Injectable} from '@nestjs/common';
 import {Repository} from 'typeorm';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Search} from './search.entity';
@@ -19,9 +19,12 @@ export class SearchService {
     }
 
     async createSearch(data: Search): Promise<Search> {
+        if (!data.animals || !data.serviceTypes) {
+            throw new BadRequestException();
+        }
         data.animals = await this.animalRepository.findByIds(data.animals);
         data.serviceTypes = await this.serviceTypeRepository.findByIds(data.serviceTypes);
-        return await this.searchRepository.save(data);
+        return this.searchRepository.save(data);
     }
 
     async getSearchById(id: string): Promise<Search> {
@@ -46,5 +49,4 @@ export class SearchService {
     async deleteSearch(id: string) {
         await this.searchRepository.delete(id);
     }
-
 }

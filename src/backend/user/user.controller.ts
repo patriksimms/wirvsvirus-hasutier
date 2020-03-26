@@ -27,8 +27,8 @@ export class UserController {
         this.userService.deleteUser(params);
     }
 
-    @Post(':userid/upload')
-    uploadFile(@Param('userid') userId, @Body() body) {
+    @Post(':id/upload')
+    uploadFile(@Param('id') userId, @Body() body) {
         console.log(body);
 
         this.userService.addImageToUser(userId, body.filename);

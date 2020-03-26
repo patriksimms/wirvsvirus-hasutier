@@ -1,4 +1,4 @@
-import {BadRequestException, Body, Controller, Delete, Get, Param, Post} from '@nestjs/common';
+import {BadRequestException, Body, Controller, Delete, Get, NotFoundException, Param, Post} from '@nestjs/common';
 import {SearchService} from './search.service';
 import {Search} from './search.entity';
 
@@ -23,33 +23,35 @@ export class SearchController {
 
     @Get('user/:id')
     async getSearchByUser(@Param() params): Promise<any> {
-        const offer = await this.searchService.getSearchesByUserId(params.id);
-
-        if (offer === undefined) {
-            throw new BadRequestException('offer id not found');
-        }
-        return offer;
+        return await this.searchService.getSearchesByUserId(params.id).then(search => {
+            return search;
+        }, reason => {
+            throw new NotFoundException(reason)
+        });
     }
 
 
     @Get(':id')
     async getSearch(@Param() params): Promise<any> {
-        const offer = await this.searchService.getSearchById(params.id);
-
-        if (offer === undefined) {
-            throw new BadRequestException('offer id not found');
-        }
-        return offer;
+        return await this.searchService.getSearchById(params.id).then(search => {
+            return search;
+        }, reason => {
+            throw new NotFoundException(reason)
+        });
     }
 
 
     @Post()
     async createOffer(@Body() params: Search): Promise<Search> {
-        return await this.searchService.createSearch(params);
+        return await this.searchService.createSearch(params).then(search => {
+            return search;
+        }, error => {
+            throw new BadRequestException(error);
+        });
     }
 
     @Delete(':id')
     deleteUser(@Param() params) {
-        this.searchService.deleteSearch(params.id);
+        this.searchService.deleteSearch(params);
     }
 }

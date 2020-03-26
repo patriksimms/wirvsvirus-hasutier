@@ -19,7 +19,6 @@ export class UserService {
     }
 
     async createUser(data: User): Promise<User> {
-        //TODO: create id
         return await this.userRepository.save(data);
     }
 
@@ -29,8 +28,5 @@ export class UserService {
 
     async addImageToUser(id: string, imageName: string) {
         await this.userRepository.update({id: id}, {imageName: imageName});
-
-
     }
-
 }
