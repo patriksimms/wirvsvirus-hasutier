@@ -8,8 +8,9 @@ import { Animal } from '../animal/animal.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Search, ServiceType, Animal])],
-  providers: [SearchService],
   controllers: [SearchController],
+  providers: [SearchService],
+  exports: [SearchService],
 })
 export class SearchModule {
 }

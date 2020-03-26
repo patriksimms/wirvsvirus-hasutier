@@ -14,7 +14,7 @@ export class SearchController {
 
   @Get('plz/:plz')
   async getSearchesFromPlz(@Param() params): Promise<any> {
-    let offers = await this.searchService.getSearchesByPLZ(params.plz);
+    const offers = await this.searchService.getSearchesByPLZ(params.plz);
     if (offers === undefined) {
       throw new BadRequestException('offer id not found');
     }
@@ -45,7 +45,7 @@ export class SearchController {
 
   @Post()
   async createOffer(@Body() params: Search): Promise<Search> {
-    return await this.searchService.createSearch(params);
+    return await this.searchService.saveOffer(params);
   }
 
   @Delete(':id')

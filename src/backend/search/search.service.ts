@@ -11,25 +11,22 @@ export class SearchService {
     @InjectRepository(Search) private searchRepository: Repository<Search>,
     @InjectRepository(Animal) private animalRepository: Repository<Animal>,
     @InjectRepository(ServiceType) private serviceTypeRepository: Repository<ServiceType>,
-  ) {}
-
-  async getAllSearches(): Promise<Search[]> {
-    return this.searchRepository.find({relations: ['serviceTypes', 'animals', 'owner']});
+  ) {
   }
 
-  async createSearch(data: Search): Promise<Search> {
-    let animals = [];
-    for (let animal of data.animals) {
-      animals.push(await this.animalRepository.findOne(animal))
-    }
-    data.animals = animals;
-    let serviceTypes = [];
-    for (let serviceType of data.serviceTypes) {
-      serviceTypes.push(await this.serviceTypeRepository.findOne(serviceType))
-    }
-    data.serviceTypes = serviceTypes;
-    console.log(data);
-    return await this.searchRepository.save(data);
+  async getAllSearches(): Promise<Search[]> {
+    return this.searchRepository.find({ relations: ['serviceTypes', 'animals', 'owner'] });
+  }
+
+  /**
+   * Saves a new offer to the DB
+   *
+   * @param offerData The offer to save
+   */
+  async saveOffer(offerData: Search): Promise<Search> {
+    console.log(offerData);
+
+    return this.searchRepository.save(offerData);
   }
 
   async getSearchById(id: string): Promise<Search> {

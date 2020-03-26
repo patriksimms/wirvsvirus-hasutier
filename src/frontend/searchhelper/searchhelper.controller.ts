@@ -1,96 +1,36 @@
-import { Controller, Get, HttpService, Param, Query, Render, Request } from '@nestjs/common';
-import { BeConnectionService } from '../../services/beConnectionService';
-import { User } from '../../backend/user/user.entity';
+import { Controller, Get, Query, Render, Request } from '@nestjs/common';
+import { AnimalService } from '../../backend/animal/animal.service';
+import { ServiceService } from '../../backend/services/serviceService';
+import { OfferService } from '../../backend/offer/offer.service';
+import { SearchHelperDto } from './searchHelperDto';
 
 
 @Controller('searchHelper')
 export class SearchhelperController {
+  private animalService: AnimalService;
+  private servicesService: ServiceService;
+  private offerService: OfferService;
+
+
+  constructor(animalService: AnimalService, servicesService: ServiceService, offerService: OfferService) {
+    this.animalService = animalService;
+    this.servicesService = servicesService;
+    this.offerService = offerService;
+  }
 
   @Get()
   @Render('searchHelper')
-  async index(@Request() req) {
-    const ser = new BeConnectionService(new HttpService());
-    const animals = await ser.getAllAnimals();
-    const services = await ser.getAllServices();
-    let offers = await ser.getAllOffers();
+  async index(@Request() req, @Query() search: SearchHelperDto) {
+    const animals = await this.animalService.getAllAnimalTypes();
+    const services = await this.servicesService.getAllServiceTypes();
 
-    if (offers == undefined) {
-      offers = [];
-    }
+    // apply filter if plz is given, otherwise show all offers
+    const offers = search.PLZ !== undefined && search.PLZ !== ""
+      ? await this.offerService.getOffersByPLZ(search.PLZ)
+      : await this.offerService.getAllOffers();
 
-    let logIn = false;
-
-    if(req.user != undefined){
-      logIn = true;
-    }
+    const logIn = req.user != undefined;
 
     return { 'animals': animals, 'services': services, 'helpers': offers, loggedIn: logIn };
   }
-
-
-  /**
-   * Filter try not sure
-   * @param query filter data
-   */
-  @Get()
-  async findByFilter(@Query() query) {
-    //Hardcode it
-    const ser = new BeConnectionService(new HttpService());
-    const animals = await ser.getAllAnimals();
-    const services = await ser.getAllServices();
-    const offers = await ser.getAllOffers();
-
-    const offerArr = [];
-    let offer;
-    let breaker;
-    let bool;
-    let age;
-    for (let i = 0; i <= offers.length; i++) {
-      bool = true;
-      offer = offers[i];
-
-      if (query.species != null) {
-        for (let j = 0; j <= offer.AnimalType && !breaker; i++) {
-          if (query.species == offer.AnimalType[j]) {
-            bool = true;
-            breaker = true;
-          }
-        }
-      }
-      breaker = false;
-      if (bool && query.service != null) {
-        for (let j = 0; j <= offer.AnimalType && !breaker; i++) {
-          if (query.service == offer.ServiceType[j]) {
-            bool = true;
-            breaker = true;
-          }
-        }
-      }
-      if (bool && query.PLZ != null) {
-        bool = (query.PLZ == offer.plz);
-      }
-      if (bool && query.begin != null && query.end != null) {
-        // eslint-disable-next-line @typescript-eslint/no-use-before-define
-        age = _calculateAge(offer.user.birthDate);
-        bool = ((query.begin <= age) && (query.end >= age));
-      }
-      if (bool) {
-
-        offerArr.push(offer);
-      }
-
-    }
-
-
-    return { 'animals': animals, 'services': services, 'helpers': offerArr };
-  }
-
-
-}
-
-
-function _calculateAge(birthday) { // birthday is a date
-  const ageDifMs = Date.now() - birthday.getTime();
-  const ageDate = new Date(ageDifMs); // miliseconds from epoch
-  return Math.abs(ageDate.getUTCFullYear() - 1970);
 }

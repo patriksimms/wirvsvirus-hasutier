@@ -28,13 +28,16 @@ import { MulterModule } from '@nestjs/platform-express';
 import { OfferModule } from './backend/offer/offer.module';
 import { SearchModule } from './backend/search/search.module';
 import { LogoutController } from './frontend/logout/logout.controller';
+import { SearchService } from './backend/search/search.service';
+import { Search } from './backend/search/search.entity';
+import { Offer } from './backend/offer/offer.entity';
 
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
     AuthModule,
-    TypeOrmModule.forFeature([User, Animal, AnimalType, ServiceType]),
+    TypeOrmModule.forFeature([User, Animal, AnimalType, ServiceType, Search, Offer]),
     UserModule,
     HttpModule,
     AnimalModule,
@@ -46,7 +49,7 @@ import { LogoutController } from './frontend/logout/logout.controller';
   ],
 
   controllers: [AppController, AnimalController, UserController, RegisterController, AppController, ProfileController, RegisterUserController, LoginController, LogoutController, SearchofferController, SearchhelperController, CreateOfferController, CreateSearchController, ServiceController, CreateAnimalController],
-  providers: [AppService, AnimalService, UserService, ServiceService],
+  providers: [AppService, AnimalService, UserService, ServiceService, SearchService],
   exports: [TypeOrmModule],
 })
 export class AppModule {
