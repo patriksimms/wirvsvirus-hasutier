@@ -1,7 +1,8 @@
-import { Controller, Get, Render, Request } from '@nestjs/common';
+import { Controller, Get, Query, Render, Request } from '@nestjs/common';
 import { AnimalService } from '../../backend/animal/animal.service';
 import { ServiceService } from '../../backend/services/serviceService';
 import { SearchService } from '../../backend/search/search.service';
+import { SearchOfferDto } from './searchOfferDto';
 
 @Controller('searchOffer')
 export class SearchofferController {
@@ -18,10 +19,14 @@ export class SearchofferController {
 
   @Get()
   @Render('searchOffer')
-async index(@Request() req) {
+async index(@Request() req, @Query() query: SearchOfferDto) {
     const animals = await this.animalService.getAllAnimalTypes();
     const services = await this.servicesService.getAllServiceTypes();
-    const search = await this.searchService.getAllSearches();
+
+    // apply filter if plz is given, otherwise show all offers
+    const search = query.PLZ !== undefined && query.PLZ !== ""
+      ? await this.searchService.getSearchesByPLZ(query.PLZ)
+      : await this.searchService.getAllSearches();
 
     const loggedIn = req.user != undefined;
 

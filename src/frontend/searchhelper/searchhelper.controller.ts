@@ -20,13 +20,13 @@ export class SearchhelperController {
 
   @Get()
   @Render('searchHelper')
-  async index(@Request() req, @Query() search: SearchHelperDto) {
+  async index(@Request() req, @Query() query: SearchHelperDto) {
     const animals = await this.animalService.getAllAnimalTypes();
     const services = await this.servicesService.getAllServiceTypes();
 
     // apply filter if plz is given, otherwise show all offers
-    const offers = search.PLZ !== undefined && search.PLZ !== ""
-      ? await this.offerService.getOffersByPLZ(search.PLZ)
+    const offers = query.PLZ !== undefined && query.PLZ !== ""
+      ? await this.offerService.getOffersByPLZ(query.PLZ)
       : await this.offerService.getAllOffers();
 
     const logIn = req.user != undefined;
