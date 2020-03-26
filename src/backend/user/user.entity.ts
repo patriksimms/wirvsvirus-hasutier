@@ -1,45 +1,50 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Animal } from '../animal/animal.entity';
-import { Offer } from '../offer/offer.entity';
+import {Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
+import {Animal} from '../animal/animal.entity';
+import {Offer} from '../offer/offer.entity';
+import {UserExperience} from "./userExperience.entity";
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
-  @Column({ unique: true })
-  email: string;
+    @Column({unique: true})
+    email: string;
 
-  @Column()
-  name: string;
+    @Column()
+    name: string;
 
-  @Column()
-  lastName: string;
+    @Column()
+    lastName: string;
 
-  @Column()
-  phone: string;
+    @Column()
+    phone: string;
 
-  @Column()
-  isVerified: boolean;
+    @Column()
+    isVerified: boolean;
 
-  @Column({ nullable: true })
-  verifiedBy: string;
+    @Column({nullable: true})
+    verifiedBy: string;
 
-  @Column()
-  description: string;
+    @Column()
+    description: string;
 
-  @Column()
-  birthDate: Date;
+    @Column()
+    birthDate: Date;
 
-  @Column()
-  hashedPassword: string;
+    @Column()
+    hashedPassword: string;
 
-  @Column({ nullable: true })
-  imageName: string;
+    @Column({nullable: true})
+    imageName: string;
 
-  @OneToMany(type => Animal, animal => animal.owner)
-  animals: Animal[];
+    @OneToMany(() => Animal, animal => animal.owner)
+    animals: Animal[];
 
-  @OneToMany(type => Offer, offer => offer.owner)
-  offers: Offer[];
+    @OneToMany(() => Offer, offer => offer.owner)
+    offers: Offer[];
+
+    @ManyToMany(() => UserExperience)
+    @JoinTable()
+    experiences: UserExperience[];
 }

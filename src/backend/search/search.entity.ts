@@ -1,8 +1,7 @@
-import { Column, Entity, JoinColumn, JoinTable, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { ManyToMany } from 'typeorm';
-import { ServiceType } from '../services/services.entity';
-import { User } from '../user/user.entity';
-import { Animal } from '../animal/animal.entity';
+import {Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {ServiceType} from '../services/services.entity';
+import {User} from '../user/user.entity';
+import {Animal} from '../animal/animal.entity';
 
 /**
  * holt die inhalte einer anfrage eines tierbesitzers
@@ -10,26 +9,26 @@ import { Animal } from '../animal/animal.entity';
 @Entity()
 export class Search {
 
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
-  @ManyToMany(type => Animal)
-  @JoinTable()
-  animals: Animal[];
+    @ManyToMany(() => Animal)
+    @JoinTable()
+    animals: Animal[];
 
-  @ManyToMany(type => ServiceType)
-  @JoinTable()
-  serviceTypes: ServiceType[];
+    @ManyToMany(() => ServiceType)
+    @JoinTable()
+    serviceTypes: ServiceType[];
 
-  @ManyToOne(type => User, user => user.offers)
-  owner: User;
+    @ManyToOne(() => User, user => user.offers)
+    owner: User;
 
-  @Column()
-  description: string;
+    @Column()
+    description: string;
 
-  @Column()
-  plz: string;
+    @Column()
+    plz: string;
 
-  @Column()
-  from: Date;
+    @Column()
+    from: Date;
 }
